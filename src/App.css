@@ -1,38 +1,80 @@
-.App {
+
+@font-face {
+  font-family: "Pixel";
+  src: url(/public/fonts/PixelOperator.ttf);
+}
+
+body {
+  font-family: "Pixel" !important;
+}
+
+.NavBar-Text{
+  font-size: 16px !important;
+  color: #5f7799 !important;
+}
+
+.HomeScreen-Container{
+  min-height: 320px;
+  display: flex;
+  background: linear-gradient(to bottom, #444966, #323342);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.HomeScreen-Title{
+  background: linear-gradient(to right, #d8e6e8, #76b4cc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   text-align: center;
+  font-size: 50px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.HomeScreen-Subtitle{
+  text-align: center;
+  font-size: 20px;
+  color: #76b4cc;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.AboutScreen-Container{
+  height:500px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  background-color: #323342;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.AboutScreen-AboutBox{
+  height: 70%;
+  width: 70%;
+  background-color: #444966;
+  box-shadow: 0px 4px 8px #1d1e2b;
+  border-radius: 16px;
+  display: flex;
+  padding-top: 3%;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+ 
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.AboutScreen-Image{
+  width: auto;
+  height: 60%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 100px;
+}
+
+.AboutScreen-Header{
+  font-size: 30px;
+  color: #d8e6e8;
+}
+
+.AboutScreen-Paragraph{
+  margin: 0px 15px;
+  font-size: 16px;
+  text-align: center;
+  color: #5f7799;
 }
