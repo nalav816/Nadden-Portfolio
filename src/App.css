@@ -10,11 +10,11 @@ body {
 
 .NavBar-Text{
   font-size: 16px !important;
-  color: #5f7799 !important;
+  color: #d8e6e8 !important;
 }
 
 .HomeScreen-Container{
-  min-height: 320px;
+  min-height: 640px;
   display: flex;
   background: linear-gradient(to bottom, #444966, #323342);
   flex-direction: column;
@@ -37,7 +37,7 @@ body {
 }
 
 .AboutScreen-Container{
-  height:500px;
+  height:1000px;
   display: flex;
   flex-direction: column;
   background-color: #323342;
@@ -46,8 +46,8 @@ body {
 }
 
 .AboutScreen-AboutBox{
-  height: 70%;
-  width: 70%;
+  height: 60%;
+  width: 75%;
   background-color: #444966;
   box-shadow: 0px 4px 8px #1d1e2b;
   border-radius: 16px;
@@ -64,7 +64,7 @@ body {
   height: 60%;
   aspect-ratio: 1/1;
   object-fit: cover;
-  border-radius: 100px;
+  border-radius: 600px;
 }
 
 .AboutScreen-Header{
@@ -77,4 +77,30 @@ body {
   font-size: 16px;
   text-align: center;
   color: #5f7799;
+}
+
+.ProjectScreen-Container{
+  height: 600px;
+  background-color: #323342;
+}
+
+.ProjectScreen-Header{
+  padding-top: 5%;
+  padding-left: 13%;
+  font-size: 30px;
+  color: #d8e6e8;
+}
+
+.ProjectScreen-Grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 120px); /* try to fill with fixed 300px columns */
+  grid-auto-rows: 130px; /* fixed height for each item */
+ 
+}
+
+.ProjectScreen-Card{
+  width: 120px;
+  height: 130px;
+  background: linear-gradient(to bottom right, #6fb1fc, #4364f7);
+  color: #444966;
 }
