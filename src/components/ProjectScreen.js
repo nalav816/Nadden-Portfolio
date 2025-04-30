@@ -30,20 +30,26 @@ function ProjectScreen(){
     return (
         <div className="ProjectScreen-Container">
             <h1 className ="ProjectScreen-Header">Projects</h1>
-            
                 <div className = "ProjectScreen-ProjectContainer">
                     {projects.map((project, index) => (
                         <div className = "ProjectScreen-Card" key = {index}>
                             <img src = {project.icon} alt = "icon" className = "ProjectScreen-CardImg"/>
                             <div className = "ProjectScreen-CardTitle">Hello</div>
                             <div className = "ProjectScreen-CardSubTitle">{project.published}</div>
+                            <div className = "ProjectScreen-CardTagContainer">
+                                <div className = "ProjectScreen-CardTag ProjectScreen-JavaCardTag ProjectScreen-CardTagText">Java</div>
+                                <div className = "ProjectScreen-CardTag ProjectScreen-IndependentCardTag ProjectScreen-CardTagText">Independent</div>
+                                <div className = "ProjectScreen-CardTag ProjectScreen-MediumSizeCardTag ProjectScreen-CardTagText">Medium Size</div>
+                            </div>
                             <div className = "ProjectScreen-CardDescription">{project.description}</div>
+                            <Button className = "ProjectScreen-CardButton">Learn More</Button>
 
 
                         </div>
                     ))}
                     
                 </div>
+    
 
             
         </div>
