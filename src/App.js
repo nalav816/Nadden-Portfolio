@@ -3,6 +3,7 @@ import HomeScreen from './components/HomeScreen.js';
 import AboutScreen from './components/AboutScreen.js'
 import ProjectScreen from './components/ProjectScreen.js'
 import NavBar from './components/NavBar.js';
+import ContactScreen from './components/ContactScreen.js';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <HomeScreen />
       <AboutScreen />
       <ProjectScreen />
+      <ContactScreen />
       
     </div>
     

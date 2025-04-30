@@ -34,6 +34,7 @@ body {
 .HomeScreen-Subtitle{
   text-align: center;
   font-size: 20px;
+  line-height: .3;
   color: #a2adb8;
 }
 
@@ -81,6 +82,7 @@ body {
 
 .ProjectScreen-Container{
   background-color: #1d1e2b;
+  padding: 30px 0px 50px 0px;
   display:flex;
   flex-direction: column;
 }
@@ -88,7 +90,6 @@ body {
 .ProjectScreen-Header{
   text-align: center;
   font-size: 30px;
-  padding-top: 30px;
 }
 
 
@@ -100,13 +101,6 @@ body {
   padding-right: 11%;
   padding-top: 20px;
   justify-content: center;
- 
-
-
-
-
-
-
 }
 
 .ProjectScreen-Card{
@@ -189,4 +183,16 @@ body {
 
 .ProjectScreen-MediumSizeCardTag{
   background-color: #cca681;
+}
+
+.ContactScreen-Container{
+  height: 600px;
+  background-color: #323342;
+  padding: 30px;
+}
+
+.ContactScreen-ContactForm{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
 }

@@ -1,9 +1,5 @@
 import "../App.css"
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
+
 
 
 function ProjectScreen(){
@@ -42,7 +38,7 @@ function ProjectScreen(){
                                 <div className = "ProjectScreen-CardTag ProjectScreen-MediumSizeCardTag ProjectScreen-CardTagText">Medium Size</div>
                             </div>
                             <div className = "ProjectScreen-CardDescription">{project.description}</div>
-                            <Button className = "ProjectScreen-CardButton">Learn More</Button>
+                            <button className = "ProjectScreen-CardButton">Learn More</button>
 
 
                         </div>
