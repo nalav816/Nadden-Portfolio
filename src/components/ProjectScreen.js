@@ -25,7 +25,7 @@ function ProjectScreen(){
 
     return (
         <div className="ProjectScreen-Container">
-            <h1 className ="ProjectScreen-Header">Projects</h1>
+            <h1 className ="Header">Projects</h1>
                 <div className = "ProjectScreen-ProjectContainer">
                     {projects.map((project, index) => (
                         <div className = "ProjectScreen-Card" key = {index}>
