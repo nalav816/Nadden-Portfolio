@@ -6,6 +6,7 @@
 
 body {
   font-family: "Pixel" !important;
+  color: #d8e6e8 !important;
 }
 
 .NavBar-Text{
@@ -14,7 +15,7 @@ body {
 }
 
 .HomeScreen-Container{
-  min-height: 640px;
+  min-height: 340px;
   display: flex;
   background: linear-gradient(to bottom, #444966, #323342);
   flex-direction: column;
@@ -37,7 +38,7 @@ body {
 }
 
 .AboutScreen-Container{
-  height:1000px;
+  height: 500px;
   display: flex;
   flex-direction: column;
   background-color: #323342;
@@ -48,7 +49,7 @@ body {
 .AboutScreen-AboutBox{
   height: 60%;
   width: 75%;
-  background-color: #444966;
+  background-color: #1d1e2b;
   box-shadow: 0px 4px 8px #1d1e2b;
   border-radius: 16px;
   display: flex;
@@ -69,7 +70,6 @@ body {
 
 .AboutScreen-Header{
   font-size: 30px;
-  color: #d8e6e8;
 }
 
 .AboutScreen-Paragraph{
@@ -80,27 +80,68 @@ body {
 }
 
 .ProjectScreen-Container{
-  height: 600px;
-  background-color: #323342;
+  background-color: #1d1e2b;
+  display:flex;
+  flex-direction: column;
 }
 
 .ProjectScreen-Header{
   padding-top: 5%;
   padding-left: 13%;
   font-size: 30px;
-  color: #d8e6e8;
 }
 
-.ProjectScreen-Grid{
+.ProjectScreen-ProjectContainer{
   display: grid;
-  grid-template-columns: repeat(auto-fill, 120px); /* try to fill with fixed 300px columns */
-  grid-auto-rows: 130px; /* fixed height for each item */
+  grid-template-columns: repeat(auto-fit, 230px);
+  gap: 20px;
+  padding-left: 13%;
+  padding-right: 11%;
+  padding-top: 20px;
  
+
+
+
+
+
+
 }
 
 .ProjectScreen-Card{
-  width: 120px;
-  height: 130px;
-  background: linear-gradient(to bottom right, #6fb1fc, #4364f7);
-  color: #444966;
+  height: 280px;
+  width: 230px;
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(circle, #444966, #5f7799);
+  border-radius: 20px;
+  gap: 0px;
+  box-shadow: 0px 4px 8px #0c0c17;
+}
+
+.ProjectScreen-CardImg{
+  width: 100%;
+  aspect-ratio: 2/1;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.ProjectScreen-CardTitle{
+  font-size: 20px;
+  color:#d8e6e8;
+  margin: 0px 10px;
+  padding: 0px;
+}
+
+.ProjectScreen-CardSubTitle{
+  font-size: 13px;
+  margin: 0px 10px;
+  padding: 0px;
+  line-height: .5;
+  color: #becbd1;
+}
+
+.ProjectScreen-CardDescription{
+  font-size: 13px;
+  line-height: .8;
+  margin:8px 10px;
 }
