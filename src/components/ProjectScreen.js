@@ -16,16 +16,14 @@ function ProjectScreen(){
                 description: "This is some text to show what my description might look like",
                 icon: "imgs/ProbableSuspectIcon.png",
                 published: "August 16, 2006"},
-                {title: "Probable Suspect", 
-                    description: "This is some text to show what my description might look like",
-                    icon: "imgs/ProbableSuspectIcon.png",
-                    published: "August 16, 2006"},
+               
 
     ];
 
     return (
         <div className="ProjectScreen-Container">
             <h1 className ="Header">Projects</h1>
+            <div className = "HeaderSubtitle">This is some random text. This is where I will display my cool projects.</div>
                 <div className = "ProjectScreen-ProjectContainer">
                     {projects.map((project, index) => (
                         <div className = "ProjectScreen-Card" key = {index}>
