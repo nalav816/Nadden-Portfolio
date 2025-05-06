@@ -21,7 +21,7 @@ function ProjectScreen(){
     ];
 
     return (
-        <div className="ProjectScreen-Container">
+        <div className="ProjectScreen-Container" id = "Project">
             <h1 className ="Header">Projects</h1>
             <div className = "HeaderSubtitle">This is some random text. This is where I will display my cool projects.</div>
                 <div className = "ProjectScreen-ProjectContainer">

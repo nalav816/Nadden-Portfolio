@@ -3,7 +3,7 @@ import "../App.css"
 
 function AboutScreen(){
     return (
-        <div className = "AboutScreen-Container">
+        <div className = "AboutScreen-Container" id = "About">
             <div className = "Header">About</div>
             <div className = "HeaderSubtitle">Random text hahaha.</div>
             <div className = "AboutScreen-AboutBox">

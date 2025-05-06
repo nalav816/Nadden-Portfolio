@@ -37,7 +37,6 @@ body {
   height: 50vw;
   background: linear-gradient(to bottom, #444966, #323342);
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
@@ -46,6 +45,7 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-align: center;
+  padding-top: 13vw;
   font-size: clamp(30px, 5vw ,50px);
 }
 
@@ -262,4 +262,16 @@ body {
   box-shadow: 0px 3px 8px #1d1e2b;
   width: 200px;
   height: 35px;
+}
+
+.ContactScreen-Icons{
+  padding: 15px 0px;
+  display:flex;
+  gap: 15px;
+
+}
+
+.ContactScreen-Icon{
+  height: 45px;
+  width: 45px;
 }

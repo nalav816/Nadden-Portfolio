@@ -10,10 +10,10 @@ function NavBar() {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" className="ms-auto"/>
                 <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="d-flex flex-row ms-auto">
-                    <Nav.Link href='#' className="NavBar-Text">Home</Nav.Link>
-                    <Nav.Link href='#' className="NavBar-Text">About</Nav.Link>
-                    <Nav.Link href='#' className="NavBar-Text">Projects</Nav.Link>
-                    <Nav.Link href='#' className="NavBar-Text">Contact</Nav.Link>
+                    <Nav.Link href='#Home' className="NavBar-Text">Home</Nav.Link>
+                    <Nav.Link href='#About' className="NavBar-Text">About</Nav.Link>
+                    <Nav.Link href='#Project' className="NavBar-Text">Projects</Nav.Link>
+                    <Nav.Link href='#Contact' className="NavBar-Text">Contact</Nav.Link>
                 </Nav>
                 </Navbar.Collapse>
             </Container>
