@@ -133,7 +133,7 @@ body {
   width: 300px;
   display: flex;
   flex-direction: column;
-  background: radial-gradient(circle, #444966, #5f7799);
+  background: radial-gradient(circle, #444966, #323342);
   border-radius: 20px;
   gap: 0px;
   box-shadow: 0px 4px 12px #0c0c17;
@@ -163,21 +163,30 @@ body {
 
 .ProjectScreen-CardDescription{
   font-size: 18px;
-  line-height: .8;
+  line-height: .94;
   margin:8px 10px;
 }
 
 .ProjectScreen-CardButton{
   margin-top: auto;
   height: 40px;
-  background-color: #76b4cc !important;
+  background-color: #76b4cc;
   border: none;
   color: #d8e6e8;
-  border-top-left-radius: 0px !important;
-  border-top-right-radius: 0px !important;
-  border-bottom-left-radius: 20px !important;
-  border-bottom-right-radius: 20px !important;
- 
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.ProjectScreen-CardButton:disabled {
+  background-color: #707180;
+  color: #a2adb8;
+}
+
+.ProjectScreen-CardButton:enabled {
+  background-color: #76b4cc;
+  color: #d8e6e8;
 }
 
 .ProjectScreen-CardTagContainer{
@@ -201,11 +210,23 @@ body {
 }
 
 .ProjectScreen-JavaCardTag{
-  background-color: #ab5a48;
+  background-color: #783642;
+}
+
+.ProjectScreen-PythonCardTag{
+  background-color: #5f7799;
 }
 
 .ProjectScreen-IndependentCardTag{
+  background-color: #4d5880;
+}
+
+.ProjectScreen-CollaborativeCardTag{
   background-color: #76b4cc;
+}
+
+.ProjectScreen-SmallSizeCardTag{
+  background-color: #5fb870;
 }
 
 .ProjectScreen-MediumSizeCardTag{
