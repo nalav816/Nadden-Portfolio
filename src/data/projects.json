@@ -4,7 +4,7 @@
         "icon": "imgs/ProbableSuspectIcon.png",
         "date": "August 16, 2006",
         "tags": ["Java", "Independent", "Medium Size"],
-        "description": "Temp desc",
+        "description": "A simple murder mystery game where you question probabilistically generated witnesses. You then choose a suspect who probably commited a murder using probable cause.",
         "released": true
     },
 
@@ -15,7 +15,41 @@
         "tags": ["Python", "Collaborative", "Small Size"],
         "description": "This is a demo project to show you how the project grid works as well as how listed unreleased projects are handled.",
         "released": false
+    },
+
+    {
+        "name": "Demo Project",
+        "icon": "imgs/DemoIcon.png",
+        "date": "June 25, 2025",
+        "tags": ["Python", "Collaborative", "Small Size"],
+        "description": "This is a demo project to show you how the project grid works as well as how listed unreleased projects are handled.",
+        "released": false
+    },
+
+    {
+        "name": "Demo Project",
+        "icon": "imgs/DemoIcon.png",
+        "date": "June 25, 2025",
+        "tags": ["Python", "Collaborative", "Small Size"],
+        "description": "This is a demo project to show you how the project grid works as well as how listed unreleased projects are handled.",
+        "released": false
+    },
+
+    {
+        "name": "Demo Project",
+        "icon": "imgs/DemoIcon.png",
+        "date": "June 25, 2025",
+        "tags": ["Python", "Collaborative", "Small Size"],
+        "description": "This is a demo project to show you how the project grid works as well as how listed unreleased projects are handled.",
+        "released": false
+    },
+
+    {
+        "name": "Demo Project",
+        "icon": "imgs/DemoIcon.png",
+        "date": "June 25, 2025",
+        "tags": ["Python", "Collaborative", "Small Size"],
+        "description": "This is a demo project to show you how the project grid works as well as how listed unreleased projects are handled.",
+        "released": false
     }
-
-
 ]

@@ -8,7 +8,7 @@ import ContactScreen from './components/ContactScreen.js';
 function App() {
   return (
     <div>
-      <NavBar></NavBar>
+      <NavBar />
       <HomeScreen />
       <AboutScreen />
       <ProjectScreen />
