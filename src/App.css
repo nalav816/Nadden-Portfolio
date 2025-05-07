@@ -81,8 +81,69 @@ body {
  
 }
 
-.AboutScreen-SkillAboutBox{
+.AboutScreen-EducationRow{
+  padding-top: 20px;
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+}
 
+.AboutScreen-EducationIcon{
+  width: clamp(80px, 20vw, 150px);
+  height: clamp(80px, 20vw, 150px);
+}
+
+.AboutScreen-EducationDescriptionColum{
+  display: flex;
+  flex-direction: column;
+}
+
+.AboutScreen-SchoolName{
+  font-size: 20px;
+}
+
+.AboutScreen-DegreeName{
+  font-size: 18px;
+  color: #878c99;
+}
+
+.AboutScreen-DateOfAttendance{
+  font-size: 18px;
+  color: #878c99;
+}
+
+.AboutScreen-GPA{
+  font-size: 18px;
+  font-weight: bolder;
+  color: #a2adb8;
+}
+
+.AboutScreen-SkillRow{
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  gap:clamp(5px, 3vw, 30px);
+}
+
+.AboutScreen-SkillColumn{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  gap: 10px;
+}
+
+.AboutScreen-SkillImage{
+  width: clamp(50px, 10vw, 90px);
+  height: clamp(50px, 10vw, 90px);
+}
+
+.AboutScreen-SkillText{
+  font-size: 16px;
+  text-align: center;
+  color: #878c99;
 }
 
 .AboutScreen-Image{
@@ -260,12 +321,6 @@ body {
   transform: scaleX(-1);
 }
 
-.ProjectScreen-HiddenToggle{
-  visibility: hidden;
-}
-
-
-
 .ContactScreen-Container{
   background-color: #323342;
   padding: 30px;
@@ -288,11 +343,6 @@ body {
   background-color: #1d1e2b;
   border-radius: 5px;
   font-size: 18px;
-}
-
-.ContactScreen-InputBox:focus{
-  border: none;
-  box-shadow: 0px 0px 12px #76b4cc;
 }
 
 .ContactScreen-InputBoxSmall{

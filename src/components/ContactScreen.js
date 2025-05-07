@@ -28,7 +28,7 @@ function ContactScreen(){
     return (
         <div className = "ContactScreen-Container" id = "Contact">
             <div className = "Header"> Contact Me </div>
-                <div className = "HeaderSubtitle"> You can find me at the socials linked below or you can email me directly using the form.</div>
+                <div className = "HeaderSubtitle"> You can find me at the socials linked below or you can email me directly using the form</div>
                 <div className = "SubHeader"> My Socials </div>
                 <div className = "ContactScreen-Icons">
                     <a href = "https://github.com/nalav816" target="_blank" rel="noopener noreferrer">

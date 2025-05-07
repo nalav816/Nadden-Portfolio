@@ -4,19 +4,19 @@
         "icon": "imgs/JavaIcon.png"
     },
     {
-        "skill": "Java",
-        "icon": "imgs/JavaIcon.png"
+        "skill": "Python",
+        "icon": "imgs/PythonIcon.png"
     },
     {
-        "skill": "Java",
-        "icon": "imgs/JavaIcon.png"
+        "skill": "HTML",
+        "icon": "imgs/HTMLIcon.png"
     },
     {
-        "skill": "Java",
-        "icon": "imgs/JavaIcon.png"
+        "skill": "CSS",
+        "icon": "imgs/CSSIcon.png"
     },
     {
-        "skill": "Java",
-        "icon": "imgs/JavaIcon.png"
+        "skill": "JavaScript",
+        "icon": "imgs/JavaScriptIcon.png"
     }
 ]

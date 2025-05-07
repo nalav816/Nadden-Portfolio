@@ -48,7 +48,7 @@ function ProjectScreen() {
         <div className="ProjectScreen-Container" id="Project">
             <h1 className="Header">Projects</h1>
             <div className="HeaderSubtitle">
-                Here you can find all of my past projects as well as those that I am currently working on.
+                Here you can find all of my past projects as well as those that I am currently working on
             </div>
             <div ref={grid} className="ProjectScreen-ProjectContainer">
                 {displayedProjects.map((project, index) => (

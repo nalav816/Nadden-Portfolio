@@ -2,10 +2,10 @@
     {
         "name": "Probable Suspect",
         "icon": "imgs/ProbableSuspectIcon.png",
-        "date": "August 16, 2006",
+        "date": "July 4, 2025",
         "tags": ["Java", "Independent", "Medium Size"],
         "description": "A simple murder mystery game where you question probabilistically generated witnesses. You then choose a suspect who probably commited a murder using probable cause.",
-        "released": true
+        "released": false
     },
 
     {

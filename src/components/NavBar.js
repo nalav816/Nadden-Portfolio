@@ -5,17 +5,14 @@ import '../App.css';
 
 function NavBar() {
     return (
-        <Navbar expand = "sm" bg ="transparent" fixed = "top">
+        <Navbar expand = {false} bg ="transparent" fixed = "top">
             <Container>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" className="ms-auto"/>
-                <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="d-flex flex-row ms-auto">
-                    <Nav.Link href='#Home' className="NavBar-Text">Home</Nav.Link>
-                    <Nav.Link href='#About' className="NavBar-Text">About</Nav.Link>
-                    <Nav.Link href='#Project' className="NavBar-Text">Projects</Nav.Link>
-                    <Nav.Link href='#Contact' className="NavBar-Text">Contact</Nav.Link>
+                    <Nav.Link href='#Home' className="NavBar-Text mx-2">Home</Nav.Link>
+                    <Nav.Link href='#About' className="NavBar-Text mx-2">About</Nav.Link>
+                    <Nav.Link href='#Project' className="NavBar-Text mx-2">Projects</Nav.Link>
+                    <Nav.Link href='#Contact' className="NavBar-Text mx-2">Contact</Nav.Link>
                 </Nav>
-                </Navbar.Collapse>
             </Container>
         </Navbar>  
     );
