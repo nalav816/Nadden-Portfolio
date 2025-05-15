@@ -1,21 +1,63 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import '../App.css';
+import "../App.css"
+import { useEffect, useState, useRef } from "react";
 
-function NavBar() {
-    return (
-        <Navbar expand = {false} bg ="transparent" fixed = "top">
-            <Container>
-                <Nav className="d-flex flex-row ms-auto">
-                    <Nav.Link href='#Home' className="NavBar-Text mx-2">Home</Nav.Link>
-                    <Nav.Link href='#About' className="NavBar-Text mx-2">About</Nav.Link>
-                    <Nav.Link href='#Project' className="NavBar-Text mx-2">Projects</Nav.Link>
-                    <Nav.Link href='#Contact' className="NavBar-Text mx-2">Contact</Nav.Link>
-                </Nav>
-            </Container>
-        </Navbar>  
+function Navbar(){
+    const mobileScreenSize = 768;
+    const hamburgerIcon = useRef();
+    const [menuToggled, toggleMenu] = useState(false);
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+    
+    useEffect(() => {
+        const handleResize = () => {
+            setScreenWidth(window.innerWidth)
+            if(window.innerWidth > mobileScreenSize && menuToggled){
+                toggleMenu(false)
+            }
+        };
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize)
+    })
+
+    const onClick = () => {
+        toggleMenu(!menuToggled)
+    }
+
+    return(
+        <div className = "navbar">
+            <div className = "navLogo">
+                <a href="#Home">
+                    <img className = "icon yellowGlow" src="imgs/angelIcon.png" alt = "Logo"></img>
+                </a>
+                <div>N<span className = "lightestBlue">A</span></div>
+            </div>
+           
+            {screenWidth > mobileScreenSize ? (
+                <div className = "navItems">
+                    <a href="#About"> About </a>
+                    <a href="#Projects"> Projects </a>
+                    <a href="#Contact"> Contact </a>
+                </div>
+                ) : (
+                <div>
+                    <button onClick= {onClick}>
+                        <img ref = {hamburgerIcon} src = {menuToggled ? "imgs/hamburgerToggled.png" : "imgs/hamburger.png"} alt = "Menu"/>
+                    </button>
+                    { menuToggled && (
+                        <div className = "navItemsMobile" style = {{
+                            right: screenWidth - hamburgerIcon.current.getBoundingClientRect().right
+                        }}>
+                            <a href="#About"> About </a>
+                            <a href="#Projects"> Projects </a>
+                            <a href="#Contact"> Contact </a>
+                        </div>
+                    )}
+                </div>
+                )
+            }
+            
+        </div>
     );
 }
 
-export default NavBar
+export default Navbar;
+
