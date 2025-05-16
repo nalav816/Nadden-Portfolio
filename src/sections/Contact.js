@@ -10,7 +10,7 @@ function Contact() {
                     <div className="subtitle lightestBlue textPdLeft textPdTop textPdBottom"> Socials </div>
 
                     <a href="https://www.linkedin.com/in/nadden-auguste-laventure-0662a6314/" target="_blank" rel="noopener noreferrer">
-                        <div className="textPdLeft textPdBottom iconWithText">
+                        <div className="textPdLeft textPdBottom iconWithText enlargeOnHover">
                             <img className="icon blueIconGlow" src="imgs/linkedinIcon.png" alt="LinkedIn" />
                             <div className="iconText">
                                 <div className="medium">LinkedIn</div>
@@ -20,7 +20,7 @@ function Contact() {
                     </a>
 
                     <a href="https://github.com/nalav816" target="_blank" rel="noopener noreferrer">
-                        <div className="textPdLeft iconWithText">
+                        <div className="textPdLeft iconWithText enlargeOnHover">
                             <img className="icon darkIconShadow" src="imgs/githubIcon.png" alt="Github" />
                             <div className="iconText">
                                 <div className="medium">Github</div>
@@ -32,7 +32,7 @@ function Contact() {
 
                 <div className="card contactCard cardPdBottom">
                     <div className="subtitle lightestBlue textPdLeft textPdTop textPdBottom"> Contact Info </div>
-                    <div className="textPdLeft textPdBottom iconWithText">
+                    <div className="textPdLeft textPdBottom iconWithText enlargeOnHover">
                         <img className="icon blueIconGlow" src="imgs/phoneIcon.png" alt="Phone" />
                         <div className="iconText">
                             <div className="medium">Phone</div>
@@ -40,7 +40,7 @@ function Contact() {
                         </div>
                     </div>
 
-                    <div className="textPdLeft textPdBottom iconWithText">
+                    <div className="textPdLeft textPdBottom iconWithText enlargeOnHover">
                         <img className="icon blueIconGlow" src="imgs/emailIcon.png" alt="Email" />
                         <div className="iconText">
                             <div className="medium">Email</div>
@@ -48,7 +48,7 @@ function Contact() {
                         </div>
                     </div>
 
-                    <div className="textPdLeft iconWithText">
+                    <div className="textPdLeft iconWithText enlargeOnHover">
                         <img className="icon blueIconGlow" src="imgs/locationIcon.png" alt="Location" />
                         <div className="iconText">
                             <div className="medium">Location</div>

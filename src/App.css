@@ -35,6 +35,43 @@ button {
   padding: 0px 0px;
 }
 
+@keyframes slideDown {
+  from {
+    transform: scaleY(0);
+  } to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    margin-top: 80px;
+  } to {
+    opacity: 1;
+    margin-top: 0px;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(7%);
+  } 50% {
+    transform: translateY(-11%);
+  } 100% {
+    transform: translateY(7%);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 10px calc(var(--brightness) * .3 * var(--scale)) var(--glowColor);
+  }
+  50% {
+    box-shadow: 0 0 10px calc(var(--brightness) * var(--scale)) var(--glowColor);
+  }
+}
+
 .lightestBlue {
   color: #76b4cc;
 }
@@ -309,11 +346,23 @@ button {
   width: calc(22px * var(--scale));
 }
 
+@keyframes comet {
+  from {
+    transform: translate(0, 0)
+  } to {
+    transform: translate(calc(var(--scale) * var(--baseWidth) * 3), calc(var(--scale) * var(--baseWidth) * 3));
+  }
+}
+
 .star {
   position: absolute;
   width: calc(1px * var(--scale));
   height: calc(1px * var(--scale));
   box-shadow: 0 0 10px calc(var(--brightness) * var(--scale)) var(--glowColor);
+}
+
+.angel{
+  animation: float 5s ease infinite;
 }
 
 @media (max-width: 680px) {

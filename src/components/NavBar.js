@@ -26,16 +26,16 @@ function Navbar(){
         <div className = "navbar">
             <div className = "navLogo">
                 <a href="#Home">
-                    <img className = "staticIcon yellowIconGlow" src="imgs/angelIcon.png" alt = "Logo"></img>
+                    <img className = "staticIcon yellowIconGlow upOnHover" src="imgs/angelIcon.png" alt = "Logo"></img>
                 </a>
                 <div>N<span className = "lightestBlue">A</span></div>
             </div>
            
             {screenWidth > mobileScreenSize ? (
                 <div className = "navItems">
-                    <a href="#About" > About </a>
-                    <a href="#Projects" > Projects </a>
-                    <a href="#Contact" > Contact </a>
+                    <a href="#About" className = "upOnHover blueOnHover"> About </a>
+                    <a href="#Projects" className = "upOnHover blueOnHover"> Projects </a>
+                    <a href="#Contact" className = "upOnHover blueOnHover"> Contact </a>
                 </div>
                 ) : (
                 <div>
