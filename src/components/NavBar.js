@@ -26,16 +26,16 @@ function Navbar(){
         <div className = "navbar">
             <div className = "navLogo">
                 <a href="#Home">
-                    <img className = "icon yellowGlow" src="imgs/angelIcon.png" alt = "Logo"></img>
+                    <img className = "staticIcon yellowIconGlow" src="imgs/angelIcon.png" alt = "Logo"></img>
                 </a>
                 <div>N<span className = "lightestBlue">A</span></div>
             </div>
            
             {screenWidth > mobileScreenSize ? (
                 <div className = "navItems">
-                    <a href="#About"> About </a>
-                    <a href="#Projects"> Projects </a>
-                    <a href="#Contact"> Contact </a>
+                    <a href="#About" > About </a>
+                    <a href="#Projects" > Projects </a>
+                    <a href="#Contact" > Contact </a>
                 </div>
                 ) : (
                 <div>
@@ -43,9 +43,7 @@ function Navbar(){
                         <img ref = {hamburgerIcon} src = {menuToggled ? "imgs/hamburgerToggled.png" : "imgs/hamburger.png"} alt = "Menu"/>
                     </button>
                     { menuToggled && (
-                        <div className = "navItemsMobile" style = {{
-                            right: screenWidth - hamburgerIcon.current.getBoundingClientRect().right
-                        }}>
+                        <div className = "navItemsMobile" >
                             <a href="#About"> About </a>
                             <a href="#Projects"> Projects </a>
                             <a href="#Contact"> Contact </a>

@@ -20,7 +20,7 @@ function Comet() {
         const updateAnim = () => {
             el.style.animation = "none";
             void el.offsetWidth; // hacky method to prevent the browser batching these two anims
-            el.style.animation = "comet " + (Math.random() * 2.5 + 3) + "s ease forwards";
+            //el.style.animation = "comet " + (Math.random() * 2.5 + 3) + "s ease forwards";
             el.style.left = rollXPosition() + "px";
         }
 

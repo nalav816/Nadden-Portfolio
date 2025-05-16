@@ -34,7 +34,6 @@ function Star() {
                 backgroundColor: color[0],
                 "--brightness": brightness + "px",
                 "--glowColor": color[1],
-                animation: pulses ? "pulse " + pulseSpeed + "s ease infinite" : "none"
             }
         }/>
     );

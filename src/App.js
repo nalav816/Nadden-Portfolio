@@ -9,8 +9,10 @@ function App() {
     const updateScale = () => {
       const style = getComputedStyle(document.documentElement)
       const baseWidth = parseFloat(style.getPropertyValue('--baseWidth'));
-      const baseHeight = parseFloat(style.getPropertyValue('--baseHeight'));
-      const topPadding = parseFloat(style.getPropertyValue('--topPadding')), bottomPadding = parseFloat(style.getPropertyValue('--bottomPadding'));
+      //Multiplied by a factor of 1.5 so that the window makes sure there is enough space for sections larger than base height before
+      //Scaling components up
+      const baseHeight = Math.floor(parseFloat(style.getPropertyValue('--baseHeight')) * 1.5);
+      const topPadding = parseFloat(style.getPropertyValue('--topPadding'));
       const screenWidth = window.innerWidth;
       
       //Represents the minimum amount of padding accepted
@@ -18,7 +20,7 @@ function App() {
       let multiplier = Math.max(1, Math.floor((screenWidth - (sidePadding * 2))/baseWidth));
 
       //Makes sure elements fit vertically in view
-      while(baseHeight * multiplier > window.innerHeight - topPadding - bottomPadding && multiplier > 1){
+      while(baseHeight * multiplier > window.innerHeight - topPadding && multiplier > 1){
         multiplier -= 1;
       }
 

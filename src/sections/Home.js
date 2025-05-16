@@ -22,13 +22,13 @@ function Home(){
                 <img className="homeLayeredImage angel" src = "imgs/angel.png" alt = "Angel"/>
 
                  <div className = "titleBox">
-                    <div className = "homeTitle blueTextGlow fadeInFast"> Portfolio </div>
-                    <div className = "medium blueTextGlow fadeIn">Nadden  <span className="lightestBlue"> Auguste Laventure </span></div>
-                    <div className = "small textPdTop textPdRight textPdBottom fadeInSlow">
+                    <div className = "homeTitle blueTextGlow"> Portfolio </div>
+                    <div className = "medium blueTextGlow">Nadden  <span className="lightestBlue"> Auguste Laventure </span></div>
+                    <div className = "small descTextPd">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
                     </div>
-                    <a href = "#Contact" className = "styledButton medButton fadeInSlow"> Get In Touch </a>
+                    <a href = "#Contact" className = "styledButton medButton"> Get In Touch </a>
                 </div>
 
             </div>
