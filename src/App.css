@@ -65,6 +65,7 @@ button {
 .lightestBlue {
   --color: var(--lightestBlue);
   --shadow: var(--blue);
+  --darkShadow: var(--darkBlue);
   --highlight: var(--lightBlue);
   color: var(--color);
 }
@@ -105,6 +106,10 @@ button {
   z-index: 0;
   border-radius: 90%;
   pointer-events: none;
+}
+
+.textGlow{
+  text-shadow: 0 0 20px var(--highlight, var(--lightestBlue));
 }
 
 /* Fonts */
@@ -216,8 +221,8 @@ button {
 }
 
 .styledButton {
-  background: radial-gradient(circle, #76b4cc, #6893B3);
-  box-shadow: 0px 4px 10px #0C0C14;
+  background: radial-gradient(circle, var(--color, var(--lightestBlue)), var(--shadow, var(--blue)));
+  box-shadow: 0px 4px 10px var(--highlight, var(--lightestBlue));
   border-radius: 5px;
   text-align: center;
   font-size: max(10px, calc(6px * var(--scale)));
@@ -226,7 +231,8 @@ button {
 }
 
 .styledButton:hover {
-  background: radial-gradient(circle, #5f7799, #4d5880);
+  background: radial-gradient(circle, var(--shadow, var(--blue)), var(--darkShadow, var(--darkBlue)));
+  box-shadow: 0px 4px 10px var(--darkShadow, var(--darkBlue));
 }
 
 .medButton {
