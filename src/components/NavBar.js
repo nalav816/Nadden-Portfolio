@@ -26,7 +26,14 @@ function Navbar(){
         <div className = "navbar">
             <div className = "navLogo">
                 <a href="#Home">
-                    <img className = "staticIcon yellowIconGlow upOnHover" src="imgs/angelIcon.png" alt = "Logo"></img>
+                   <div className = "yellow staticIcon upOnHover">
+                         <img className = "iconImage" src="imgs/angelIcon.png" alt = "Logo"></img>
+                         <div className="radialGlow"/>
+                   </div>
+                   
+            
+
+                  
                 </a>
                 <div>N<span className = "lightestBlue">A</span></div>
             </div>

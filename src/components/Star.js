@@ -5,9 +5,7 @@ const pulseSpeedRange = [1, 6];
 //brightness means a larger glow radius
 const brightnessRange = [1, 2];
 //Solid color in first index, glow color in second index
-const starColors = [["#5f7799", "rgba(95, 119, 153, .4)"], 
-                    ["#76b4cc", "rgba(118, 180, 204, .4)"]
-                   ];
+const starColors = ["lightestBlue", "blue"];
 
 function Star() {
     const rollProperty = (property) => {
@@ -27,14 +25,12 @@ function Star() {
     const pulses = Math.floor(Math.random() * 8) != 0;
 
     return(
-        <div className = "star" style = {
+        <div className = {"star " + color} style = {
             {
                 left: x + "%",
                 top: y + "%",
-                backgroundColor: color[0],
                 "--brightness": brightness + "px",
-                "--glowColor": color[1],
-                animation: pulses ? "pulse " + pulseSpeed + "s ease infinite" : "none"
+                animation: pulses ? "starPulse " + pulseSpeed + "s ease infinite" : "none"
             }
         }/>
     );
