@@ -18,6 +18,10 @@
   --darkBlue: #4d5880;
   --darkerBlue: #444966;
   --darkestBlue: #1C1E2B;
+  --orange: #c97c55;
+  --lightRed: #ab5a48;
+  --red: #913d3d;
+  --darkRed: #783642;
   --black: #0C0C14;
   --white: #d8e6e8;
   --grey: #a2adb8;
@@ -28,7 +32,6 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 100px;
-  scroll-snap-type: y proximity;
 
 }
 
@@ -117,10 +120,7 @@ input:focus, textarea:focus {
   animation: fadeIn 1.25s ease forwards;
 }
 
-.animatesIn{
-  /* Initial state of anything that fades in on scroll */
-  opacity: 0;
-}
+
 
 
 /* Colors */
@@ -156,6 +156,19 @@ input:focus, textarea:focus {
   color: var(--color);
 }
 
+.orange{
+  --color: var(--orange);
+  --highlight: var(--orange);
+  color: var(--color)
+}
+
+.red {
+  --color: var(--red);
+  --highlight: var(--lightRed);
+  --shadow: var(--darkRed);
+  color: var(--color)
+}
+
 /* Glow */
 .radialGlow{
   position: absolute;
@@ -174,6 +187,11 @@ input:focus, textarea:focus {
   text-shadow: 0 0 20px var(--highlight, var(--lightestBlue));
 }
 
+/* Transparency */
+.transparent{
+  opacity: 0;
+}
+
 /* Fonts */
 .title {
   font-size: calc(20px * var(--scale));
@@ -184,7 +202,7 @@ input:focus, textarea:focus {
 }
 
 .big {
-  font-size: 3vw;
+  font-size: calc(10.5px * max(var(--scale), 2));
 }
 
 .medium {
@@ -207,6 +225,7 @@ input:focus, textarea:focus {
   padding-top: calc(7px * var(--scale));
   padding-right: calc(.55 * var(--scale) * var(--baseWidth));
   padding-bottom: calc(8px * var(--scale));
+
 }
 
 @media (max-width: 680px) {
@@ -215,6 +234,7 @@ input:focus, textarea:focus {
   }
 }
 
+/* Section */
 .section {
   scroll-snap-align: start;
   width: calc(var(--scale) * var(--baseWidth));
@@ -223,15 +243,16 @@ input:focus, textarea:focus {
   flex-wrap: wrap;
 }
 
+/* Card */
 .card{
   position: relative;
   background: radial-gradient(circle, #323342, #232533);
   box-shadow: 0 10px 12px #0C0C14;
   display: flex;
-}
-
-.gap{
-  gap: calc(4px * var(--scale));
+  box-sizing: border-box;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 .cardPdTop {
@@ -257,6 +278,7 @@ input:focus, textarea:focus {
   position: relative;
   height: 32px;
   width: 32px;
+  
 }
 
 .icon {
@@ -276,7 +298,7 @@ input:focus, textarea:focus {
 
 .iconWithText {
   display: flex;
-  gap: calc(12px * var(--scale));
+  gap: calc(4px * var(--scale));
   justify-content: stretch;
   transform-origin: center;
 }
@@ -287,9 +309,10 @@ input:focus, textarea:focus {
   justify-content: center;
 }
 
+/* Button */
 .styledButton {
   background: radial-gradient(circle, var(--color, var(--lightestBlue)), var(--shadow, var(--blue)));
-  box-shadow: 0px 4px 10px var(--highlight, var(--lightestBlue));
+  box-shadow: 0px 4px 5px var(--highlight, var(--lightestBlue));
   border-radius: 5px;
   text-align: center;
   font-size: max(10px, calc(6px * var(--scale)));
@@ -319,6 +342,7 @@ input:focus, textarea:focus {
 
 }
 
+/* Container Props */
 .clipContent{
   overflow: hidden;
 }
@@ -327,6 +351,16 @@ input:focus, textarea:focus {
   position: relative;
 }
 
+.gap{
+  gap: calc(4px * var(--scale));
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+
+/* Hover Effects */
 .enlargeOnHover{
   transition: transform .2s ease;
   transform-origin: top left;
@@ -347,10 +381,27 @@ input:focus, textarea:focus {
 .blueOnHover:hover{
   color: var(--lightestBlue);
 }
+
+/* Flex box */
+.flex {
+  display: flex;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.col {
+  flex-direction: column
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
 /* Specific Styles */
 /* Home Page */
 .homePage{
-  padding-top: 100px;
+  padding-top: var(--topPadding);
   height: 5000px;
   background: linear-gradient(to bottom, #1C1E2B, #0C0C14);
   display: flex;
@@ -459,18 +510,57 @@ input:focus, textarea:focus {
   animation: float 5s ease infinite;
 }
 
+.pointer {
+  position: absolute;
+  top: calc(195px * var(--scale));
+  width: calc(8px * max(var(--scale), 2));
+  height: calc(8px * max(var(--scale), 2));
+  animation: pointer 2s ease-in-out infinite;
+}
+
 @media (max-width: 680px) {
   .angel {
     left: 30px;
   }
 }
 
+/* About Section */
+.educationCard{
+  flex-grow: .5;
+}
+
+.skillCard{
+  flex-grow: 1;
+  min-height: 240px;
+}
+
+.novaIcon {
+  position: relative;
+  width: calc(64px * max(var(--scale), 2));
+  z-index: 2;
+  
+}
+
+.novaIconShadow {
+  position: absolute;
+  filter: brightness(0) blur(5px);
+  left: 0;
+  top: 2%;
+  width: calc(64px * max(var(--scale), 2));
+  z-index: 1;
+}
+
+.portrait {
+  position:absolute;
+  right: -2%;
+  top: -8%;
+  width: calc(70px * var(--scale));
+  z-index: 2;
+  box-shadow: 0px 8px 8px var(--black);
+}
+
 /* Contact Section */
 .contactCard{
-  box-sizing: border-box;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
   width: max(310px, calc(158px * var(--scale)))
 }
 
@@ -529,5 +619,15 @@ input:focus, textarea:focus {
     transform: translate(0, 0)
   } to {
     transform: translate(calc(var(--scale) * var(--baseWidth) * 3), calc(var(--scale) * var(--baseWidth) * 3));
+  }
+}
+
+@keyframes pointer {
+  0% {
+    transform: translateY(0)
+  } 50% {
+    transform: translateY(10px)
+  } 100% {
+    transform: translateY(0px)
   }
 }

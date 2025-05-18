@@ -7,7 +7,7 @@ const starCount = 150
 function Home(){
     const stars = new Array(starCount).fill(0);
     return (
-        <div className= "section" id = "Home">
+        <div className= "section relPos" id = "Home">
             <div className = "card">
                 <img className="homeImage" src = "imgs/homeBackground.png" alt = "Home Art"/>
                 <div className = "homeLayeredImage  clipContent">
@@ -32,6 +32,7 @@ function Home(){
                 </div>
 
             </div>
+            <img className = "pointer" src = "imgs/pointer.png" alt = "pointer"/>
         </div>
     );
 }

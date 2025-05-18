@@ -5,8 +5,8 @@ const Contact = forwardRef(({visible}, ref) => {
     return (
         <div ref = {ref} className="section gap" id="Contact">
             <div className="contactInfo gap">
-                <div className={"title animatesIn cardPdLeft" + (visible && " fadeInFastest")}> Contact <span className="lightestBlue"> Me </span></div>
-                <div className= {"card animatesIn contactCard cardPdBottom cardPdTop cardPdLeft" + (visible && " fadeInFast")}>
+                <div className={"title transparent cardPdLeft" + (visible && " fadeInFastest")}> Contact <span className="lightestBlue"> Me </span></div>
+                <div className= {"card transparent contactCard cardPdBottom cardPdTop cardPdLeft" + (visible && " fadeInFast")}>
                     <div className="subtitle lightestBlue textPdLeft textPdTop textPdBottom"> Socials </div>
 
                     <a href="https://www.linkedin.com/in/nadden-auguste-laventure-0662a6314/" target="_blank" rel="noopener noreferrer">
@@ -38,7 +38,7 @@ const Contact = forwardRef(({visible}, ref) => {
                     </a>
                 </div>
 
-                <div className={"card animatesIn contactCard cardPdBottom cardPdTop cardPdLeft" + (visible && " fadeInFast")} style = {{animationDelay: ".1s"}}>
+                <div className={"card transparent contactCard cardPdBottom cardPdTop cardPdLeft" + (visible && " fadeInFast")} style = {{animationDelay: ".1s"}}>
                     <div className="subtitle lightestBlue textPdLeft textPdTop textPdBottom"> Contact Info </div>
                     <div className="textPdLeft textPdBottom iconWithText enlargeOnHover">
                         <div className = "lightestBlue icon">
@@ -78,7 +78,7 @@ const Contact = forwardRef(({visible}, ref) => {
                 </div>
             </div>
 
-            <div className={"card animatesIn contactCard cardFillHeight messageCard cardPdTop cardPdLeft cardPdBottom cardPdRight" + (visible && " fadeInFast")} style = {{animationDelay: ".2s"}}>
+            <div className={"card transparent contactCard cardFillHeight messageCard cardPdTop cardPdLeft cardPdBottom cardPdRight" + (visible && " fadeInFast")} style = {{animationDelay: ".2s"}}>
                 <div className="subtitle lightestBlue textPdBottom"> Direct Message </div>
                 <form>
                     <div>

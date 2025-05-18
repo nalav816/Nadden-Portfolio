@@ -22,7 +22,7 @@ function Star() {
     const pulseSpeed = rollRange(pulseSpeedRange);
     const brightness = rollRange(brightnessRange);
     const color = rollProperty(starColors);
-    const pulses = Math.floor(Math.random() * 8) != 0;
+    const pulses = Math.floor(Math.random() * 8) !== 0;
 
     return(
         <div className = {"star " + color} style = {
