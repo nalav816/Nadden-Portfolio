@@ -78,8 +78,24 @@ const Contact = forwardRef(({visible}, ref) => {
                 </div>
             </div>
 
-            <div className={"card animatesIn contactCard cardFillHeight messageCard cardPdTop cardPdLeft cardPdBottom" + (visible && " fadeInFast")} style = {{animationDelay: ".2s"}}>
-                <div className="subtitle textPdLeft textPdTop lightestBlue textPdBottom"> Direct Message </div>
+            <div className={"card animatesIn contactCard cardFillHeight messageCard cardPdTop cardPdLeft cardPdBottom cardPdRight" + (visible && " fadeInFast")} style = {{animationDelay: ".2s"}}>
+                <div className="subtitle lightestBlue textPdBottom"> Direct Message </div>
+                <form>
+                    <div>
+                        <label htmlFor = "name" className = "medium"> Name </label>
+                        <input className = "small" type = "text" placeholder = "John Doe" id = "name" required/>
+                    </div>
+                    <div>
+                        <label htmlFor = "email" className = "medium"> Email </label>
+                        <input className = "small" type = "text" placeholder = "johndoe@gmail.com" id = "email" inputMode="email" required/> 
+                    </div>
+                    <div>
+                        <label htmlFor = "message" className = "medium"> Message </label>
+                        <textarea className = "small" placeholder = "Type your message here..." id = "message" required/> 
+                    </div>
+                    
+                    <button className = "styledButton bigButton enlargeOnHover" type = "submit"> Send </button>
+                </form>
             </div>
         </div>
     )
