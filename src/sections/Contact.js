@@ -1,12 +1,12 @@
-import "../App.css"
+import "../App.css";
+import { forwardRef} from "react"
 
-function Contact() {
+const Contact = forwardRef(({visible}, ref) => {
     return (
-        <div className="section gap" id="Contact">
-
+        <div ref = {ref} className="section gap" id="Contact">
             <div className="contactInfo gap">
-                <div className="title textPdLeft textPdTop"> Contact <span className="lightestBlue"> Me </span></div>
-                <div className="card contactCard cardPdBottom">
+                <div className={"title animatesIn cardPdLeft" + (visible && " fadeInFastest")}> Contact <span className="lightestBlue"> Me </span></div>
+                <div className= {"card animatesIn contactCard cardPdBottom cardPdTop cardPdLeft" + (visible && " fadeInFast")}>
                     <div className="subtitle lightestBlue textPdLeft textPdTop textPdBottom"> Socials </div>
 
                     <a href="https://www.linkedin.com/in/nadden-auguste-laventure-0662a6314/" target="_blank" rel="noopener noreferrer">
@@ -38,7 +38,7 @@ function Contact() {
                     </a>
                 </div>
 
-                <div className="card contactCard cardPdBottom">
+                <div className={"card animatesIn contactCard cardPdBottom cardPdTop cardPdLeft" + (visible && " fadeInFast")} style = {{animationDelay: ".1s"}}>
                     <div className="subtitle lightestBlue textPdLeft textPdTop textPdBottom"> Contact Info </div>
                     <div className="textPdLeft textPdBottom iconWithText enlargeOnHover">
                         <div className = "lightestBlue icon">
@@ -78,11 +78,11 @@ function Contact() {
                 </div>
             </div>
 
-            <div className="card contactCard cardFillHeight messageCard">
+            <div className={"card animatesIn contactCard cardFillHeight messageCard cardPdTop cardPdLeft cardPdBottom" + (visible && " fadeInFast")} style = {{animationDelay: ".2s"}}>
                 <div className="subtitle textPdLeft textPdTop lightestBlue textPdBottom"> Direct Message </div>
             </div>
         </div>
     )
-}
+})
 
 export default Contact

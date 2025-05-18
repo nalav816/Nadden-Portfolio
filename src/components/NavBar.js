@@ -1,11 +1,15 @@
 import "../App.css"
 import { useEffect, useState, useRef } from "react";
+import { useInView } from "motion/react";
 
-function Navbar(){
+function Navbar({sections}){
     const mobileScreenSize = 768;
     const hamburgerIcon = useRef();
     const [menuToggled, toggleMenu] = useState(false);
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+    const contactInView = useInView(sections.contact, {amount: .1});
+
     
     useEffect(() => {
         const handleResize = () => {
@@ -42,7 +46,10 @@ function Navbar(){
                 <div className = "navItems">
                     <a href="#About" className = "upOnHover blueOnHover"> About </a>
                     <a href="#Projects" className = "upOnHover blueOnHover"> Projects </a>
-                    <a href="#Contact" className = "upOnHover blueOnHover"> Contact </a>
+                    <a href="#Contact" className = "relPos"> 
+                        <div className = {contactInView ? "lightestBlue" : "upOnHover blueOnHover"}> Contact </div>
+                        {contactInView && (<div className = "navItemLine"/>)}
+                    </a>
                 </div>
                 ) : (
                 <div>

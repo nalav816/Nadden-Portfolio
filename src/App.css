@@ -7,9 +7,9 @@
   --baseWidth: 320px;
   --baseHeight: 180px;
   --scale: 1;
-  /* topPadding is constant while bottomPadding will be scaled with "scale" */
+  /* topPadding is constant while vertPadding will be scaled with "scale" */
   --topPadding: 100px;
-  --bottomPadding: 70px;
+  --sectionGap: 130px;
 
   /* Colors */
   --lightestBlue : #76b4cc;
@@ -27,6 +27,9 @@
 /* General Styles */
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+  scroll-snap-type: y proximity;
+
 }
 
 body {
@@ -49,6 +52,10 @@ button {
 }
 
 /* Anims */
+.fadeInFastest{
+  animation: fadeIn .3s ease forwards;
+}
+
 .fadeInFast{
   animation: fadeIn .5s ease forwards;
 }
@@ -60,6 +67,12 @@ button {
 .fadeInSlow{
   animation: fadeIn 1.25s ease forwards;
 }
+
+.animatesIn{
+  /* Initial state of anything that fades in on scroll */
+  opacity: 0;
+}
+
 
 /* Colors */
 .lightestBlue {
@@ -137,14 +150,6 @@ button {
   text-align: center;
 }
 
-.textPdTop{
-  padding-top: calc(7px * var(--scale));
-}
-
-.textPdLeft{
-   padding-left: calc(20px * var(--scale));
-}
-
 .textPdBottom{
   padding-bottom: calc(4px * var(--scale));
 }
@@ -162,7 +167,7 @@ button {
 }
 
 .section {
-  padding: 0px 0px calc(var(--scale) * var(--bottomPadding)) 0px;
+  scroll-snap-align: start;
   width: calc(var(--scale) * var(--baseWidth));
   display: flex;
   justify-content: center;
@@ -180,9 +185,18 @@ button {
   gap: calc(4px * var(--scale));
 }
 
+.cardPdTop {
+  padding-top: calc(7px * var(--scale));;
+}
+
 .cardPdBottom {
   padding-bottom: calc(22px * var(--scale));;
 }
+
+.cardPdLeft{
+   padding-left: calc(20px * var(--scale));
+}
+
 
 /*Icons*/
 /* Static Icon does not resize with the rest of the window */
@@ -232,7 +246,7 @@ button {
 
 .styledButton:hover {
   background: radial-gradient(circle, var(--shadow, var(--blue)), var(--darkShadow, var(--darkBlue)));
-  box-shadow: 0px 4px 10px var(--darkShadow, var(--darkBlue));
+  box-shadow: 0px 3px 10px var(--darkShadow, var(--darkBlue));
 }
 
 .medButton {
@@ -248,6 +262,10 @@ button {
 
 .clipContent{
   overflow: hidden;
+}
+
+.relPos {
+  position: relative;
 }
 
 .enlargeOnHover{
@@ -268,15 +286,17 @@ button {
 }
 
 .blueOnHover:hover{
-  color: #76b4cc;
+  color: var(--lightestBlue);
 }
 /* Specific Styles */
 /* Home Page */
 .homePage{
-  padding-top: var(--topPadding);
+  padding-top: 100px;
+  height: 5000px;
   background: linear-gradient(to bottom, #1C1E2B, #0C0C14);
   display: flex;
   flex-direction: column;
+  gap: calc(var(--scale) * var(--sectionGap));
   align-items: center;
   
 }
@@ -316,6 +336,18 @@ button {
   flex-direction: column;
   transform-origin: top;
   animation: slideDown .5s ease forwards;
+}
+
+.navItemLine {
+  position: absolute;
+  top: 100% + 10px;
+  left: -5%;
+  width: 110%;
+  height: 2px;
+  border-radius: 90%;
+  background-color: var(--lightestBlue);
+  animation: navItem .6s ease forwards;
+  transform-origin: center;
 }
 
 .navLogo{
@@ -376,6 +408,7 @@ button {
 
 /* Contact Section */
 .contactCard{
+  box-sizing: border-box;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
@@ -409,6 +442,14 @@ button {
     transform: translateY(-11%);
   } 100% {
     transform: translateY(7%);
+  }
+}
+
+@keyframes navItem {
+  0% {
+    transform: scaleX(0);
+  } 100% {
+    transform: scaleX(100%);
   }
 }
 
