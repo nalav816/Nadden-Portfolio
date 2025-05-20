@@ -12,6 +12,7 @@ function Navbar({ sections, isMobile }) {
     const viewThreshold = .4;
     const aboutInView = useInView(sections.about, {amount: viewThreshold})
     const contactInView = useInView(sections.contact, { amount: viewThreshold});
+    const projectsInView = useInView(sections.projects, { amount: viewThreshold});
     
     const onClick = () => {
         toggleMenu(!menuToggled)
@@ -36,11 +37,14 @@ function Navbar({ sections, isMobile }) {
             {!isMobile ? (
                 <div className="navItems">
                     <a href="#About" className="relPos"> 
-                        <div className={aboutInView && !contactInView ? "lightestBlue" : "upOnHover blueOnHover"}> About </div>
-                        {aboutInView && !contactInView && (<div className="navItemLine" />)}
+                        <div className={aboutInView && !projectsInView && !contactInView ? "lightestBlue" : "upOnHover blueOnHover"}> About </div>
+                        {aboutInView && !projectsInView && !contactInView && (<div className="navItemLine" />)}
                     </a>
 
-                    <a href="#Projects" className="upOnHover blueOnHover"> Projects </a>
+                    <a href="#Projects" className="relPos"> 
+                        <div className={projectsInView && !contactInView ? "lightestBlue" : "upOnHover blueOnHover"}> Projects </div>
+                        {projectsInView && !contactInView && (<div className="navItemLine" />)}
+                    </a>
 
                     <a href="#Contact" className="relPos">
                         <div className={contactInView ? "lightestBlue" : "upOnHover blueOnHover"}> Contact </div>

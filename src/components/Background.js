@@ -3,11 +3,11 @@ import Star from "./Star.js"
 import ParallaxLayer from "./ParallaxLayer.js"
 import { useMemo } from "react"
 
-const StarCount = 50;
+const starCount = 50;
 
 function Background({isMobile}) {
     const stars = useMemo(() => {
-        return new Array(StarCount).fill(0).map((_, i) => <Star key={i} />)
+        return new Array(starCount).fill(0).map((_, i) => <Star key={i} />)
     }, []);
 
     return (

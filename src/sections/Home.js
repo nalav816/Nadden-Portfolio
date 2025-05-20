@@ -2,18 +2,21 @@ import "../App.css"
 import Comet from "../components/Comet.js"
 import Star from "../components/Star.js"
 
+import { useMemo } from "react"
+
 const starCount = 150
 
 function Home(){
-    const stars = new Array(starCount).fill(0);
+     const stars = useMemo(() => {
+        return new Array(starCount).fill(0).map((_, i) => <Star key={i} />)
+    }, []);
+
     return (
         <div className= "section relPos firstLayer" id = "Home">
             <div className = "card">
                 <img className="homeImage" src = "imgs/homeBackground.png" alt = "Home Art"/>
                 <div className = "homeLayeredImage  clipContent">
-                    {stars.map((_, i) => (
-                        <Star key = {i}/>
-                    ))}
+                    {stars}
                     <Comet />
                     <Comet />
                 </div>
