@@ -7,11 +7,11 @@ const starCount = 150
 function Home(){
     const stars = new Array(starCount).fill(0);
     return (
-        <div className= "section relPos" id = "Home">
+        <div className= "section relPos firstLayer" id = "Home">
             <div className = "card">
                 <img className="homeImage" src = "imgs/homeBackground.png" alt = "Home Art"/>
                 <div className = "homeLayeredImage  clipContent">
-                    {stars.map((v, i) => (
+                    {stars.map((_, i) => (
                         <Star key = {i}/>
                     ))}
                     <Comet />
@@ -24,11 +24,11 @@ function Home(){
                  <div className = "titleBox">
                     <div className = "homeTitle textGlow fadeInFast"> Portfolio </div>
                     <div className = "medium textGlow fadeIn">Nadden  <span className="lightestBlue"> Auguste Laventure </span></div>
-                    <div className = "small descTextPd">
+                    <div className = "small descTextPd fadeInSlow">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
                     </div>
-                    <a href = "#Contact" className = "styledButton medButton fadeInSlow enlargeOnHover"> Get In Touch </a>
+                    <a href = "#Contact" className = "styledButton medButton enlargeOnHover"> Get In Touch </a>
                 </div>
 
             </div>

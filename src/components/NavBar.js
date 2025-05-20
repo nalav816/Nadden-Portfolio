@@ -1,31 +1,25 @@
 import "../App.css"
-import { useEffect, useState, useRef } from "react";
-import { useInView } from "motion/react";
+import { useState, useRef } from "react";
+import { useInView, useScroll, useMotionValueEvent } from "motion/react";
 
-function Navbar({ sections }) {
-    const mobileScreenSize = 768;
+function Navbar({ sections, isMobile }) {
     const hamburgerIcon = useRef();
+    const { scrollYProgress } = useScroll();
     const [menuToggled, toggleMenu] = useState(false);
-    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+    const [scrollProgress, setScrollProgress] = useState(0);
 
-    const viewThreshold = .3;
+    //Threshold before navbar identifies a given section as the current section
+    const viewThreshold = .4;
     const aboutInView = useInView(sections.about, {amount: viewThreshold})
     const contactInView = useInView(sections.contact, { amount: viewThreshold});
     
-    useEffect(() => {
-        const handleResize = () => {
-            setScreenWidth(window.innerWidth)
-            if (window.innerWidth > mobileScreenSize && menuToggled) {
-                toggleMenu(false)
-            }
-        };
-        window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize)
-    })
-
     const onClick = () => {
         toggleMenu(!menuToggled)
     }
+
+    useMotionValueEvent(scrollYProgress, "change", (newValue) => {
+        setScrollProgress(newValue);
+    })
 
     return (
         <div className="navbar">
@@ -39,7 +33,7 @@ function Navbar({ sections }) {
                 <div>N<span className="lightestBlue">A</span></div>
             </div>
 
-            {screenWidth > mobileScreenSize ? (
+            {!isMobile ? (
                 <div className="navItems">
                     <a href="#About" className="relPos"> 
                         <div className={aboutInView && !contactInView ? "lightestBlue" : "upOnHover blueOnHover"}> About </div>
@@ -68,6 +62,8 @@ function Navbar({ sections }) {
                 </div>
             )
             }
+
+            <div className = "scrollProgressBar" style = {{transform: "scaleX(" + scrollProgress + ")" }}/>
         </div>
     );
 }

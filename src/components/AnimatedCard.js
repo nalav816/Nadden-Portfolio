@@ -1,6 +1,6 @@
 import "../App.css";
 
-function AnimatedCard({visible, className = "", rightPadded = false, animationDelay = "0s", titleType = "title", title = "Title", children}) {
+function AnimatedCard({visible, className = "", rightPadded = false, animationDelay = "0s", titleType = "title", title = "Title", style = {}, children}) {
     const classes = [
         "card transparent cardPdTop cardPdLeft cardPdBottom",
         className,
@@ -14,7 +14,7 @@ function AnimatedCard({visible, className = "", rightPadded = false, animationDe
     const remaining = titleWords.slice(1).join(" ");
 
     return(
-        <div className = {classes} style = {{animationDelay: animationDelay}}>
+        <div className = {classes} style = {{...{animationDelay: animationDelay}, ...style}}>
             {titleType === "title" ?
                 (
                     <div className = "title textPdBottom"> {firstTitleWord} <span className = "lightestBlue"> {remaining} </span></div>

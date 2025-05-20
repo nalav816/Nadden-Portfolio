@@ -1,13 +1,17 @@
 import './App.css';
 import MainPage from "./pages/MainPage.js"
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+
 
 
 function App() {
-  //Dyanmically scales images by integer values within the entire App (done to preserve pixel-art fidelity)
+  //Tracks if mobile since certain things are disabled or changed on mobile
+  const [isMobile, setIsMobile] = useState()
+ 
   useEffect(() => {
-    const updateScale = () => {
+     //Dyanmically scales images by integer values within the entire App 
+    function updateScale() {
       const style = getComputedStyle(document.documentElement)
       const baseWidth = parseFloat(style.getPropertyValue('--baseWidth'));
       //Multiplied by a factor of 1.5 so that the window makes sure there is enough space for sections larger than base height before
@@ -27,14 +31,19 @@ function App() {
      
       document.documentElement.style.setProperty('--scale', multiplier);
     }
+
+    const handleResize = () => {
+      updateScale();
+      setIsMobile(window.innerWidth <= 1024);
+    }
     
-    updateScale();
-    window.addEventListener("resize", updateScale)
-    return () => {window.removeEventListener("resize", updateScale)}
+    handleResize();
+    window.addEventListener("resize", handleResize)
+    return () => {window.removeEventListener("resize", handleResize)}
   }, [])
 
   return (
-    <MainPage />
+    <MainPage isMobile = {isMobile} />
   );
 }
 
