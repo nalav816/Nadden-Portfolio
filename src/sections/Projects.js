@@ -1,19 +1,126 @@
 import "../App.css"
+import AnimatedCard from "../components/AnimatedCard"
 import { forwardRef, useState } from "react"
 
-const Projects = forwardRef(({visible}, ref) => {
+const projectList = [
+    {
+        name: "Probable Suspect",
+        icon: "imgs/probableSuspectIcon.png",
+        completed: false,
+        completionDate: "June 2025",
+        tags: ["java", "independent", "medium"],
+        caption: "A murder mystery game built on Java and the Swing framework.",
+        description: "  In Probable Suspect, following a murder, the player attains randomized clues through interrogating procedurally generated witnesses. Given these clues, the player is then tasked with choosing the correct suspect. \n    Though the lack of a game engine wasn’t ideal for the game’s scope, it has provided the opportunity to engage with and understand technologies often taken for granted, such as collision detection. In addition to those mentioned earlier, this game uses a variety of systems, including but not limited to branching character dialogue, event-driven gameplay, multithreading (through Java Swing), and UI interpolation.",
+        githubURL: "https://github.com/nalav816/Probable-Suspect"
+    },
+
+    {
+        name: "Coco Clicker",
+        icon: "imgs/cocoClickerIcon.png",
+        completed: true,
+        completionDate: "February 2023",
+        tags: ["gml", "independent", "small"],
+        caption: "An idle clicker game.",
+        description: "  Coco Clicker is an idle clicker game directly inspired by Cookie Clicker. In it, you gather chocolates, which you can then reinvest into minions which help you get more chocolates. Key systems include upgrades, powerups, and idle-worker handling.",
+        githubURL: "https://github.com/nalav816/Coco-Clicker"
+    }
+]
+
+const projectTags = {
+    java: { name: "Java", color: "red" },
+    gml: {name: "GML", color: "lightestBlue"},
+    independent: { name: "Independent", color: "blue" },
+    medium: { name: "Medium", color: "yellow" },
+    small: {name: "Small", color: "green"}
+}
+
+const PageMenu = ({ visible, pageNum }) => (
+    <div className={"pageMenu transparent " + (visible && "fadeInFastest")}>
+        <button className="smallIcon enlargeOnHover">
+            <img className="smallIcon" src="imgs/leftArrow.png" alt="left" />
+            <div className="radialGlow lightestBlue" />
+        </button>
+        <div className="medium"> {pageNum} </div>
+        <button className="smallIcon enlargeOnHover">
+            <img className="smallIcon rightArrow" src="imgs/leftArrow.png" alt="right" />
+            <div className="radialGlow lightestBlue" />
+        </button>
+    </div>
+);
+
+const ProjectCard = ({ visible, project, animationDelay = "0s" }) => {
+    const [dropDownToggled, toggleDropdown] = useState(false);
+
+    return (
+        <AnimatedCard className="relPos" visible={visible} hasTitle={false} animationName="gridFadeIn" hasPadding={false} animationDelay= {animationDelay}>
+            <img className="projectImageIcon" src={project.icon} alt="project icon" />
+            <div className="projectCardInfoContainer">
+                <div className="medium"> {project.name} </div>
+                <div className="small lightGrey"> {(project.completed ? "Completion Date: " : "Expected Date: ") +  project.completionDate} </div>
+
+                <div className="tagContainer">
+                    {project.tags.map((tag, i) => (
+                        <div className={"projectTag " + projectTags[tag].color} key={i}> {projectTags[tag].name} </div>
+                    ))}
+                </div>
+                <div className="small lightGrey"> {project.caption} </div>
+                <button onClick={() => toggleDropdown(true)} className="styledButton smallButton projectButton enlargeOnHover"> Learn More </button>
+            </div>
+            {dropDownToggled && (
+                <div className="projectCardDropdown">
+                    <div className="projectDescText" style={{whiteSpace: "pre-wrap"}}> {project.description} </div>
+                    <button onClick={() => toggleDropdown(false)} className="xButton medium enlargeOnHover"> X </button>
+                    <a href= {project.completed ? project.githubURL : undefined}
+                        target="_blank" rel="noopener noreferrer"
+                        className= {(project.completed ? "styledButton darkBlue enlargeOnHover " : "disabledButton ") +"smallButton projectButton"}
+                    ><div className = "small white">{project.completed ? "Source" : "Coming Soon"}</div> </a>
+                </div>
+            )}
+        </AnimatedCard>
+    );
+}
+
+const Grid = ({ visible }) => (
+    <div className="projectGrid gap">
+        {projectList.map((project, i) => (
+            <ProjectCard visible={visible} project={project} key={i} animationDelay={(i * .1) + "s"}/>
+        ))}
+    </div>
+);
+
+
+const Projects = forwardRef(({ visible, scale }, ref) => {
     const [pageNum, setPageNum] = useState(1)
 
-    return(
-        <div ref = {ref} className = "section gap" id = "Projects">
-            <div className = {"projectsHeader transparent cardPdLeft cardPdRight " + (visible && "fadeInFast")}>
-                <div className = "title">Proj<span className = "lightestBlue">ects</span></div>
-                <div className = "pageMenu">
-                    <button className = "smallIcon"><img className = "smallIcon" src = "imgs/leftArrow.png" alt = "left"/></button>
-                    <div className = "medium"> {pageNum} </div>
-                    <button className = "smallIcon"><img className = "smallIcon rightArrow" src = "imgs/leftArrow.png" alt = "right"/></button>
+
+    return (
+        <div ref={ref} className="section" id="Projects">
+            {scale > 1 ? (
+                <div className="flex col fullWidth fullHeight gap">
+                    <div className={"projectsHeader textGlow transparent cardPdLeft cardPdRight " + (visible && "fadeInFastest")}>
+                        <div className="title">Proj<span className="lightestBlue">ects</span></div>
+                        <PageMenu pageNum={pageNum} visible={visible} />
+                    </div>
+                    <Grid visible={visible} />
                 </div>
-            </div>
+            ) : (
+                <div className="flex row fullWidth fullHeight">
+                    <div className="mobileProjectTitle">
+                        <div className={"homeTitle transparent textGlow " + (visible && "fadeInFastest")}> P </div>
+                        <div style={{ animationDelay: ".05s" }} className={"homeTitle transparent textGlow " + (visible && "fadeInFastest")}> R </div>
+                        <div style={{ animationDelay: ".1s" }} className={"homeTitle transparent textGlow " + (visible && "fadeInFastest")}> O </div>
+                        <div style={{ animationDelay: ".15s" }} className={"homeTitle transparent textGlow " + (visible && "fadeInFastest")}> J </div>
+                        <div style={{ animationDelay: ".2s" }} className={"homeTitle transparent textGlow lightestBlue " + (visible && "fadeInFastest")}> E </div>
+                        <div style={{ animationDelay: ".25s" }} className={"homeTitle transparent textGlow lightestBlue " + (visible && "fadeInFastest")}> C </div>
+                        <div style={{ animationDelay: ".3s" }} className={"homeTitle transparent textGlow lightestBlue " + (visible && "fadeInFastest")}> T </div>
+                        <div style={{ animationDelay: ".35s" }} className={"homeTitle transparent textGlow lightestBlue " + (visible && "fadeInFastest")}> S </div>
+                    </div>
+                    <div className="flex col gap alignEnd">
+                        <PageMenu pageNum={pageNum} visible={visible} />
+                        <Grid visible={visible} />
+                    </div>
+                </div>
+            )}
         </div>
     )
 })

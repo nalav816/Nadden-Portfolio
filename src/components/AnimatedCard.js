@@ -1,10 +1,12 @@
 import "../App.css";
 
-function AnimatedCard({visible, className = "", rightPadded = false, animationDelay = "0s", titleType = "title", title = "Title", style = {}, children}) {
+function AnimatedCard({ visible, className = "", hasPadding = true, rightPadded = false, animationName = "fadeInFast", animationDelay = "0s",
+    titleType = "title", title = "Title", hasTitle = true, style = {}, children }) {
     const classes = [
-        "card transparent cardPdTop cardPdLeft cardPdBottom",
+        "card transparent",
+        hasPadding ? "cardPdTop cardPdLeft cardPdBottom" : "",
         className,
-        visible ? "fadeInFast" : "",
+        visible ? animationName : "",
         rightPadded ? "cardPdRight" : ""
     ].join(" ")
 
@@ -13,15 +15,15 @@ function AnimatedCard({visible, className = "", rightPadded = false, animationDe
     const firstTitleWord = titleWords[0];
     const remaining = titleWords.slice(1).join(" ");
 
-    return(
-        <div className = {classes} style = {{...{animationDelay: animationDelay}, ...style}}>
-            {titleType === "title" ?
+    return (
+        <div className={classes} style={{ ...{ animationDelay: animationDelay }, ...style }}>
+            {hasTitle && (titleType === "title" ?
                 (
-                    <div className = "title textPdBottom"> {firstTitleWord} <span className = "lightestBlue"> {remaining} </span></div>
+                    <div className="title textGlow textPdBottom"> {firstTitleWord} <span className="lightestBlue"> {remaining} </span></div>
                 ) : (
-                    <div className = "subtitle lightestBlue textPdBottom"> {title} </div>
+                    <div className="subtitle lightestBlue textPdBottom"> {title} </div>
                 )
-            }
+            )}
             {children}
         </div>
     )

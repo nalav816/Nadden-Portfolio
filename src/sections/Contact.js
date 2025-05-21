@@ -5,7 +5,7 @@ const Contact = forwardRef(({visible}, ref) => {
     return (
         <div ref = {ref} className="section gap" id="Contact">
             <div className="contactInfo gap">
-                <div className={"title transparent cardPdLeft" + (visible && " fadeInFastest")}> Contact <span className="lightestBlue"> Me </span></div>
+                <div className={"title transparent textGlow cardPdLeft" + (visible && " fadeInFastest")}> Contact <span className="lightestBlue"> Me </span></div>
                 <div className= {"card transparent contactCard cardPdBottom cardPdTop cardPdLeft" + (visible && " fadeInFast")}>
                     <div className="subtitle lightestBlue textPdLeft textPdTop textPdBottom"> Socials </div>
 

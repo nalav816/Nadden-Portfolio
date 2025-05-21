@@ -4,11 +4,11 @@ import LabeledIcon from "../components/LabeledIcon"
 import ParallaxLayer from "../components/ParallaxLayer"
 import { forwardRef } from "react"
 
-const About = forwardRef(({visible, isMobile}, ref) => {
+const About = forwardRef(({visible, isMobile, scale}, ref) => {
     return(
         <div ref = {ref} className = "section gap" id = "About">
             {!isMobile && (
-                <ParallaxLayer layer = {6} className = {"portrait " + (visible && "portraitVisible")}>
+                <ParallaxLayer scale = {scale} layer = {6} className = {"portrait " + (visible && "portraitVisible")}>
                     <img className = "fullWidth fullHeight" src = "imgs/portrait.jpg" alt = "portrait"/>
                 </ParallaxLayer>
             )}
@@ -17,7 +17,14 @@ const About = forwardRef(({visible, isMobile}, ref) => {
                 {isMobile && (
                     <img className = "portrait" src = "imgs/portrait.jpg" alt = "portrait"/>
                 )}
-                <div className = "small lightGrey descTextPd"> Hi, I'm Nadden. I'm orginally from Brooklyn, NY. I've loved tech ever since I was a kid and that has turned into a passion for coding. I'm particularly interested in game development, although I am open to exploring other fields as well.</div>
+                <div className = "small lightGrey descTextPd"> 
+                    To create is to be impactful. 
+                    Ever since I was a kid, I’ve loved taking things past face value. 
+                    Plenty of useful things in our lives seemingly just exist, but how do they exist? 
+                    Coupled with a love for technology, this curiosity for understanding the how translated into a passion for coding. 
+                    After learning Java, I began to create. Of course, creation comes with its own set of challenges. 
+                    Nonetheless, I enjoy it because to me, challenge is what gives life meaning. 
+                </div>
             </AnimatedCard>
             <div className = "flex row fullWidth gap wrap">
                 <AnimatedCard visible = {visible} className = "educationCard" animationDelay=".1s" titleType="subtitle" title = "Education">

@@ -14,6 +14,9 @@
   /* Layers */
   --mainLayer: 5;
 
+  /* Layout */
+  --cardGap: 7px;
+
   /* Colors */
   --lightestBlue : #76b4cc;
   --lightBlue: #6893b3;
@@ -29,7 +32,10 @@
   --black: #0C0C14;
   --white: #d8e6e8;
   --grey: #a2adb8;
+  --darkGrey: #878c99;
+  --darkestGrey: #707180;
   --yellow: #cca681;
+  --green: #50a371;
 }
 
 /* General Styles */
@@ -140,19 +146,41 @@ input:focus, textarea:focus {
 
 .blue {
   --color: var(--blue);
+  --darkShadow: var(--darkestBlue);
   --shadow: var(--darkerBlue);
   --highlight: var(--blue);
+  color: var(--color);
+}
+
+.darkBlue {
+  --color: var(--darkestBlue);
+  --darkShadow: var(--black);
+  --shadow: var(--bluishBlack);
+  --highlight: var(--darkerBlue);
   color: var(--color);
 }
 
 .black {
   --color: var(--black);
   --highlight: var(--black);
+  --shadow: var(--black);
+  --darkShadow: var(--black);
   color: var(--color);
+}
+
+.white {
+  --color: var(--white);
+  --highlight: var(--white);
+  --shadow: var(--white);
+  --darkShadow: var(--white);
+  color: var(--white);
 }
 
 .lightGrey{
   --color: var(--grey);
+  --shadow: var(--darkGrey);
+  --darkShadow: var(--darkestGrey);
+  --highlight: var(--grey);
   color: var(--color);
 }
 
@@ -160,6 +188,14 @@ input:focus, textarea:focus {
   --color: var(--yellow);
   --highlight: var(--yellow);
   color: var(--color);
+}
+
+.green {
+  --color: var(--green);
+  --shadow: var(--green);
+  --darkShadow: var(--green);
+  --highlight: var(--green);
+  color: var(---green);
 }
 
 .orange{
@@ -198,6 +234,10 @@ input:focus, textarea:focus {
   opacity: 0;
 }
 
+.opaque {
+  opacity: 1;
+}
+
 /* Fonts */
 .title {
   font-size: calc(20px * var(--scale));
@@ -228,9 +268,9 @@ input:focus, textarea:focus {
 }
 
 .descTextPd {
-  padding-top: calc(7px * var(--scale));
+  padding-top: calc(4px * var(--scale));
   padding-right: calc(.55 * var(--scale) * var(--baseWidth));
-  padding-bottom: calc(8px * var(--scale));
+  padding-bottom: calc(4px * var(--scale));
 
 }
 
@@ -325,10 +365,7 @@ input:focus, textarea:focus {
 /* Button */
 .styledButton {
   background: radial-gradient(circle, var(--color, var(--lightestBlue)), var(--shadow, var(--blue)));
-  box-shadow: 0px 4px 10px var(--highlight, var(--lightestBlue));
-  border-radius: 5px;
-  text-align: center;
-  font-size: max(10px, calc(6px * var(--scale)));
+  box-shadow: 0px 2px 10px var(--highlight, var(--lightestBlue));
 }
 
 @media (min-width: 1025px) {
@@ -352,7 +389,20 @@ input:focus, textarea:focus {
 }
 
 .smallButton {
+  width: calc(40px * max(2, var(--scale)));
+  height: calc(9px * max(2, var(--scale)));
+  line-height: calc(max(8px * var(--scale), 16px));
+}
 
+.disabledButton {
+  background-color: var(--darkestGrey);
+  box-shadow: 0px 4px 10px var(--darkestBlue);
+}
+
+.disabledButton, .styledButton {
+  border-radius: 5px;
+  text-align: center;
+  font-size: max(10px, calc(6px * var(--scale)));
 }
 
 /* Container Props */
@@ -365,7 +415,7 @@ input:focus, textarea:focus {
 }
 
 .gap{
-  gap: calc(4px * var(--scale));
+  gap: calc(var(--cardGap) * var(--scale));
 }
 
 .fullWidth {
@@ -416,6 +466,10 @@ input:focus, textarea:focus {
 
 .col {
   flex-direction: column
+}
+
+.alignEnd {
+  align-items: flex-end;
 }
 
 .wrap {
@@ -616,7 +670,7 @@ input:focus, textarea:focus {
   position:absolute;
   opacity: 0;
   right: calc(4px * var(--scale) * -1);
-  top: calc(90px * var(--scale));
+  top: calc(80px * var(--scale));
   width: calc(70px * var(--scale));
   height: calc(105px * var(--scale));
   box-shadow: 0px 8px 8px var(--black);
@@ -636,11 +690,16 @@ input:focus, textarea:focus {
 
 /* Projects Section */
 .projectsHeader {
+  box-sizing: border-box;
   width: 100%;
 }
 
 .pageMenu {
   width: 30%;
+}
+
+.rightArrow {
+  transform: scaleX(-1);
 }
 
 .projectsHeader, .pageMenu {
@@ -649,23 +708,118 @@ input:focus, textarea:focus {
   align-items: center;
 }
 
-.rightArrow {
-  transform: scaleX(-1);
+@media (max-width: 680px) {
+  .projectsHeader {
+    
+  }
+}
+
+.mobileProjectTitle {
+  display: flex;
+  flex-direction: column;
+  padding-top: 30px;
+  gap: 37px;
+  width: calc(var(--baseWidth) - 204px - var(--cardGap));
+  align-items: center;
+}
+
+.projectGrid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(3, calc((var(--baseWidth) * var(--scale))/3 - (var(--cardGap) * var(--scale) * 2)/3));
+  grid-template-rows: repeat(2, calc(130px * var(--scale)));
+  gap: calc(var(--cardGap) * var(--scale));
+}
+
+.projectImageIcon {
+  width: 100%;
+  aspect-ratio: 160/90;
+}
+
+@media (max-width: 680px) {
+  .projectGrid {
+     grid-template-columns: repeat(1, 204px);
+     grid-template-rows: repeat(2, 260px);
+     justify-content: end;
+  }
+}
+
+.gridFadeIn {
+  animation: fadeIn .3s ease-out forwards;
+}
+
+.projectCardInfoContainer {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: calc(5px * max(var(--scale), 2));
+  height: calc(70px * max(var(--scale), 2));
+}
+
+.tagContainer {
+  padding: calc(2px * max(var(--scale), 2)) 0px;
+  display: flex;
+  gap: calc(2px * max(var(--scale), 2));
+}
+
+.projectTag {
+  width: calc(29px * max(var(--scale), 2));
+  height: calc(7px * max(var(--scale), 2));
+  line-height: calc(6px * max(var(--scale), 2));
+  background-color: var(--color);
+  color: var(--white);
+  font-size: max(10px, calc(5px * var(--scale)));
+  text-align: center;
+}
+
+.projectButton {
+  margin-top: auto;
+}
+
+.projectCardDropdown {
+  position: absolute;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  background-color: rgb(from var(--lightestBlue) r g b / 95%);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: calc(5px * max(var(--scale), 2));
+  transform-origin: top left;
+  animation: slideDown .2s ease forwards;
+}
+
+.projectDescText {
+  font-size: calc(5px * max(var(--scale), 2));
+}
+
+.xButton {
+  position: absolute;
+  transform-origin: center;
+  right: 2%;
+  top: 0;
 }
 
 /* Contact Section */
 .contactCard{
-  width: max(310px, calc(158px * var(--scale)))
+  width: calc((var(--baseWidth)/2 - var(--cardGap)) * var(--scale));
+}
+
+@media (max-width: 680px) {
+  .contactCard {
+    width: var(--baseWidth);
+  }
+
+  .messageCard {
+    height: 430px;
+  }
 }
 
 .contactInfo{
   display: flex;
   flex-direction: column;
-}
-
-
-.messageCard{
-  min-height: 469px;
 }
 
 /* Keyframes */

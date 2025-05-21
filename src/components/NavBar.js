@@ -9,7 +9,7 @@ function Navbar({ sections, isMobile }) {
     const [scrollProgress, setScrollProgress] = useState(0);
 
     //Threshold before navbar identifies a given section as the current section
-    const viewThreshold = .4;
+    const viewThreshold = .2;
     const aboutInView = useInView(sections.about, {amount: viewThreshold})
     const contactInView = useInView(sections.contact, { amount: viewThreshold});
     const projectsInView = useInView(sections.projects, { amount: viewThreshold});
@@ -37,17 +37,17 @@ function Navbar({ sections, isMobile }) {
             {!isMobile ? (
                 <div className="navItems">
                     <a href="#About" className="relPos"> 
-                        <div className={aboutInView && !projectsInView && !contactInView ? "lightestBlue" : "upOnHover blueOnHover"}> About </div>
+                        <div className={aboutInView && !projectsInView && !contactInView ? "" : "upOnHover blueOnHover"}> About </div>
                         {aboutInView && !projectsInView && !contactInView && (<div className="navItemLine" />)}
                     </a>
 
                     <a href="#Projects" className="relPos"> 
-                        <div className={projectsInView && !contactInView ? "lightestBlue" : "upOnHover blueOnHover"}> Projects </div>
+                        <div className={projectsInView && !contactInView ? "" : "upOnHover blueOnHover"}> Projects </div>
                         {projectsInView && !contactInView && (<div className="navItemLine" />)}
                     </a>
 
                     <a href="#Contact" className="relPos">
-                        <div className={contactInView ? "lightestBlue" : "upOnHover blueOnHover"}> Contact </div>
+                        <div className={contactInView ? "" : "upOnHover blueOnHover"}> Contact </div>
                         {contactInView && (<div className="navItemLine" />)}
                     </a>
                 </div>

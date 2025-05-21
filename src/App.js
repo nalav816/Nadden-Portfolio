@@ -7,7 +7,8 @@ import { useEffect, useState } from 'react';
 
 function App() {
   //Tracks if mobile since certain things are disabled or changed on mobile
-  const [isMobile, setIsMobile] = useState()
+  const [scale, setScale] = useState(1);
+  const [isMobile, setIsMobile] = useState();
  
   useEffect(() => {
      //Dyanmically scales images by integer values within the entire App 
@@ -30,6 +31,7 @@ function App() {
       }
      
       document.documentElement.style.setProperty('--scale', multiplier);
+      setScale(multiplier);
     }
 
     const handleResize = () => {
@@ -43,7 +45,7 @@ function App() {
   }, [])
 
   return (
-    <MainPage isMobile = {isMobile} />
+    <MainPage isMobile = {isMobile} scale = {scale}/>
   );
 }
 

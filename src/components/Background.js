@@ -5,7 +5,7 @@ import { useMemo } from "react"
 
 const starCount = 50;
 
-function Background({isMobile}) {
+function Background({isMobile, scale}) {
     const stars = useMemo(() => {
         return new Array(starCount).fill(0).map((_, i) => <Star key={i} />)
     }, []);
@@ -15,7 +15,7 @@ function Background({isMobile}) {
             <div className = "backgroundUpper"/>
             <div className = "backgroundLower"/>
             {!isMobile ? (
-                <ParallaxLayer layer = {4} parallaxThreshold={0} className = "backgroundParallax">
+                <ParallaxLayer scale = {scale} layer = {4} parallaxThreshold={0} className = "backgroundParallax">
                     {stars}
                 </ParallaxLayer>
             ) : (
