@@ -83,11 +83,11 @@ const Contact = forwardRef(({visible}, ref) => {
                 <form>
                     <div>
                         <label htmlFor = "name" className = "medium"> Name </label>
-                        <input className = "small" type = "text" placeholder = "John Doe" id = "name" required/>
+                        <input className = "small" type = "text" placeholder = "Type your name here..." id = "name" required/>
                     </div>
                     <div>
                         <label htmlFor = "email" className = "medium"> Email </label>
-                        <input className = "small" type = "text" placeholder = "johndoe@gmail.com" id = "email" inputMode="email" required/> 
+                        <input className = "small" type = "text" placeholder = "Type your email here..." id = "email" inputMode="email" required/> 
                     </div>
                     <div>
                         <label htmlFor = "message" className = "medium"> Message </label>

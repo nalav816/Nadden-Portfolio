@@ -2,14 +2,29 @@ import "../App.css"
 import { useState, useRef } from "react";
 import { useInView, useScroll, useMotionValueEvent } from "motion/react";
 
+const Navitem = ({type, sectionInView, isMobile, toggleMenu}) => {
+    const onClick = () => {
+        if(isMobile && !sectionInView){
+            toggleMenu(false);
+        }
+    }
+
+    return (
+         <a href= {"#" + type} className="relPos" onClick = {onClick}> 
+            <div className={sectionInView ? (isMobile ? "lightestBlue" : "") : "upOnHover blueOnHover"}> {type} </div>
+            {sectionInView && !isMobile && (<div className="navItemLine" />)}
+        </a>
+    )
+}
+
 function Navbar({ sections, isMobile }) {
     const hamburgerIcon = useRef();
-    const { scrollYProgress } = useScroll();
+    const {scrollYProgress } = useScroll();
     const [menuToggled, toggleMenu] = useState(false);
     const [scrollProgress, setScrollProgress] = useState(0);
 
     //Threshold before navbar identifies a given section as the current section
-    const viewThreshold = .2;
+    const viewThreshold = isMobile ? .4 : .2;
     const aboutInView = useInView(sections.about, {amount: viewThreshold})
     const contactInView = useInView(sections.contact, { amount: viewThreshold});
     const projectsInView = useInView(sections.projects, { amount: viewThreshold});
@@ -36,20 +51,9 @@ function Navbar({ sections, isMobile }) {
 
             {!isMobile ? (
                 <div className="navItems">
-                    <a href="#About" className="relPos"> 
-                        <div className={aboutInView && !projectsInView && !contactInView ? "" : "upOnHover blueOnHover"}> About </div>
-                        {aboutInView && !projectsInView && !contactInView && (<div className="navItemLine" />)}
-                    </a>
-
-                    <a href="#Projects" className="relPos"> 
-                        <div className={projectsInView && !contactInView ? "" : "upOnHover blueOnHover"}> Projects </div>
-                        {projectsInView && !contactInView && (<div className="navItemLine" />)}
-                    </a>
-
-                    <a href="#Contact" className="relPos">
-                        <div className={contactInView ? "" : "upOnHover blueOnHover"}> Contact </div>
-                        {contactInView && (<div className="navItemLine" />)}
-                    </a>
+                    <Navitem type = "About" sectionInView = {aboutInView && !projectsInView && !contactInView} isMobile = {isMobile} toggleMenu = {toggleMenu}/>
+                    <Navitem type = "Projects" sectionInView = {projectsInView && !contactInView} isMobile = {isMobile} toggleMenu = {toggleMenu}/>
+                    <Navitem type = "Contact" sectionInView = {contactInView} isMobile = {isMobile} toggleMenu = {toggleMenu}/>
                 </div>
             ) : (
                 <div>
@@ -58,9 +62,9 @@ function Navbar({ sections, isMobile }) {
                     </button>
                     {menuToggled && (
                         <div className="navItemsMobile" >
-                            <a href="#About"> About </a>
-                            <a href="#Projects"> Projects </a>
-                            <a href="#Contact"> Contact </a>
+                            <Navitem type = "About" sectionInView = {aboutInView && !projectsInView && !contactInView} isMobile = {isMobile} toggleMenu = {toggleMenu}/>
+                            <Navitem type = "Projects" sectionInView = {projectsInView && !contactInView} isMobile = {isMobile} toggleMenu = {toggleMenu}/>
+                            <Navitem type = "Contact" sectionInView = {contactInView} isMobile = {isMobile} toggleMenu = {toggleMenu}/>
                         </div>
                     )}
                 </div>
