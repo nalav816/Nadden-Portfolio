@@ -15,14 +15,25 @@ const projectList = [
     },
 
     {
+        name: "Planet Sim",
+        icon: "imgs/planetSimIcon.png",
+        completed: false,
+        completionDate: "December 2023",
+        tags: ["java", "independent", "small"],
+        caption: "A program which simulates planetary gravitational motion.",
+        description: " Write later",
+        githubURL: " Add later"
+    },
+
+    {
         name: "Choclateer At War",
         icon: "imgs/choclateerAtWarIcon.png",
         completed: true,
         completionDate: "March 2023",
         tags: ["gml", "independent", "medium"],
-        caption: "A platforming game with combat.",
+        caption: "A platforming game with combat and a story. Made in GameMaker Studio 2.",
         description: "  Add later",
-        githubURL: ""
+        githubURL: "https://github.com/nalav816/Choclateer-At-War"
     },
 
     {
@@ -31,7 +42,7 @@ const projectList = [
         completed: true,
         completionDate: "February 2023",
         tags: ["gml", "independent", "small"],
-        caption: "An idle clicker game.",
+        caption: "An idle clicker game. Made in GameMake Studio 2.",
         description: "  Coco Clicker is an idle clicker game directly inspired by Cookie Clicker. In it, you gather chocolates, which you can then reinvest into minions which help you get more chocolates. Key systems include upgrades, powerups, and idle-worker handling.",
         githubURL: "https://github.com/nalav816/Coco-Clicker"
     },
@@ -50,35 +61,41 @@ const projectList = [
 
 const projectTags = {
     java: { name: "Java", color: "red" },
-    gml: {name: "GML", color: "lightestBlue"},
+    gml: { name: "GML", color: "lightestBlue" },
     independent: { name: "Independent", color: "blue" },
     medium: { name: "Medium", color: "yellow" },
-    small: {name: "Small", color: "green"}
+    small: { name: "Small", color: "green" }
 }
 
-const PageMenu = ({ visible, pageNum }) => (
-    <div className={"pageMenu transparent " + (visible && "fadeInFastest")}>
-        <button className="smallIcon enlargeOnHover">
-            <img className="smallIcon" src="imgs/leftArrow.png" alt="left" />
-            <div className="radialGlow lightestBlue" />
-        </button>
-        <div className="medium"> {pageNum} </div>
-        <button className="smallIcon enlargeOnHover">
-            <img className="smallIcon rightArrow" src="imgs/leftArrow.png" alt="right" />
-            <div className="radialGlow lightestBlue" />
-        </button>
-    </div>
-);
+const PageMenu = ({ visible, pageVariables }) => {
+    const onClick = (isLeft) => {
+        pageVariables.setCurrentPageNum(pageVariables.currentPageNum + (isLeft ? -1 : 1))
+    }
+
+    return (
+        <div className={"pageMenu transparent " + (visible && "fadeInFastest")}>
+            <button className="smallIcon enlargeOnHover" style = {{visibility: pageVariables.prevPage ? "visible" : "hidden"}} onClick = {() => onClick(true)}>
+                <img className="smallIcon" src="imgs/leftArrow.png" alt="left" />
+                <div className="radialGlow lightestBlue" />
+            </button>
+            <div className="medium"> {pageVariables.currentPageNum} </div>
+            <button className="smallIcon enlargeOnHover" style = {{visibility: pageVariables.nextPage ? "visible" : "hidden"}} onClick = {() => onClick(false)}>
+                <img className="smallIcon rightArrow" src="imgs/leftArrow.png" alt="right" />
+                <div className="radialGlow lightestBlue" />
+            </button>
+        </div>
+    );
+};
 
 const ProjectCard = ({ visible, project, animationDelay = "0s" }) => {
     const [dropDownToggled, toggleDropdown] = useState(false);
 
     return (
-        <AnimatedCard className="relPos" visible={visible} hasTitle={false} animationName="gridFadeIn" hasPadding={false} animationDelay= {animationDelay}>
+        <AnimatedCard className="relPos" visible={visible} hasTitle={false} animationName="gridFadeIn" hasPadding={false} animationDelay={animationDelay}>
             <img className="projectImageIcon" src={project.icon} alt="project icon" />
             <div className="projectCardInfoContainer">
                 <div className="medium"> {project.name} </div>
-                <div className="small lightGrey"> {(project.completed ? "Completion Date: " : "Expected Date: ") +  project.completionDate} </div>
+                <div className="small lightGrey"> {(project.completed ? "Completion Date: " : "Expected Date: ") + project.completionDate} </div>
 
                 <div className="tagContainer">
                     {project.tags.map((tag, i) => (
@@ -90,12 +107,12 @@ const ProjectCard = ({ visible, project, animationDelay = "0s" }) => {
             </div>
             {dropDownToggled && (
                 <div className="projectCardDropdown">
-                    <div className="projectDescText" style={{whiteSpace: "pre-wrap"}}> {project.description} </div>
+                    <div className="projectDescText" style={{ whiteSpace: "pre-wrap" }}> {project.description} </div>
                     <button onClick={() => toggleDropdown(false)} className="xButton medium enlargeOnHover"> X </button>
-                    <a href= {project.completed ? project.githubURL : undefined}
+                    <a href={project.completed ? project.githubURL : undefined}
                         target="_blank" rel="noopener noreferrer"
-                        className= {(project.completed ? "styledButton darkBlue enlargeOnHover " : "disabledButton ") +"smallButton projectButton"}
-                    ><div className = "small white">{project.completed ? "Source" : "Coming Soon"}</div> </a>
+                        className={(project.completed ? "styledButton darkBlue enlargeOnHover " : "disabledButton ") + "smallButton projectButton"}
+                    ><div className="small white">{project.completed ? "Source" : "Coming Soon"}</div> </a>
                 </div>
             )}
         </AnimatedCard>
@@ -105,7 +122,7 @@ const ProjectCard = ({ visible, project, animationDelay = "0s" }) => {
 const Grid = ({ visible, page }) => (
     <div className="projectGrid gap">
         {page.map((project, i) => (
-            <ProjectCard visible={visible} project={project} key={i} animationDelay={(i * .1) + "s"}/>
+            <ProjectCard visible={visible} project={project} key={i} animationDelay={(i * .1) + "s"} />
         ))}
     </div>
 );
@@ -115,17 +132,29 @@ const Projects = forwardRef(({ visible, scale }, ref) => {
     const itemsPerPage = scale === 1 ? 2 : 6;
     const [pageNum, setPageNum] = useState(1)
 
-    const page = projectList.slice((pageNum - 1) * itemsPerPage, ((pageNum - 1) * itemsPerPage) + itemsPerPage)
-  
+    //edge case where screen is resized and there are less pages
+    if(pageNum > Math.ceil(projectList.length/itemsPerPage)){
+        setPageNum(Math.ceil(projectList.length/itemsPerPage))
+    }
+
+    const projectsOnPage = projectList.slice((pageNum - 1) * itemsPerPage, ((pageNum - 1) * itemsPerPage) + itemsPerPage)
+    //Gives pageMenu the packet of information it needs to function
+    const pagePacket = {
+        currentPageNum: pageNum,
+        setCurrentPageNum: setPageNum,
+        prevPage: pageNum != 1,
+        nextPage: (pageNum) * itemsPerPage < projectList.length
+    }
+
     return (
         <div ref={ref} className="section" id="Projects">
             {scale > 1 ? (
                 <div className="flex col fullWidth fullHeight gap">
                     <div className={"projectsHeader textGlow transparent cardPdLeft cardPdRight " + (visible && "fadeInFastest")}>
                         <div className="title">Proj<span className="lightestBlue">ects</span></div>
-                        {itemsPerPage <= projectList.length && <PageMenu pageNum={pageNum} visible={visible} />}
+                        {itemsPerPage <= projectList.length && <PageMenu pageVariables={pagePacket} visible={visible} />}
                     </div>
-                    <Grid visible= {visible} page = {page}/>
+                    <Grid visible={visible} page={projectsOnPage} />
                 </div>
             ) : (
                 <div className="flex row fullWidth fullHeight">
@@ -140,8 +169,8 @@ const Projects = forwardRef(({ visible, scale }, ref) => {
                         <div style={{ animationDelay: ".35s" }} className={"homeTitle transparent textGlow lightestBlue " + (visible && "fadeInFastest")}> S </div>
                     </div>
                     <div className="flex col gap alignEnd">
-                        <PageMenu pageNum={pageNum} visible={visible} />
-                        <Grid visible={visible} page = {page} />
+                        {itemsPerPage <= projectList.length && <PageMenu pageVariables={pagePacket} visible={visible} />}
+                        <Grid visible={visible} page= {projectsOnPage}/>
                     </div>
                 </div>
             )}
