@@ -15,6 +15,17 @@ const projectList = [
     },
 
     {
+        name: "Choclateer At War",
+        icon: "imgs/choclateerAtWarIcon.png",
+        completed: true,
+        completionDate: "March 2023",
+        tags: ["gml", "independent", "medium"],
+        caption: "A platforming game with combat.",
+        description: "  Add later",
+        githubURL: ""
+    },
+
+    {
         name: "Coco Clicker",
         icon: "imgs/cocoClickerIcon.png",
         completed: true,
@@ -23,6 +34,17 @@ const projectList = [
         caption: "An idle clicker game.",
         description: "  Coco Clicker is an idle clicker game directly inspired by Cookie Clicker. In it, you gather chocolates, which you can then reinvest into minions which help you get more chocolates. Key systems include upgrades, powerups, and idle-worker handling.",
         githubURL: "https://github.com/nalav816/Coco-Clicker"
+    },
+
+    {
+        name: "Space Invaders",
+        icon: "imgs/spaceInvadersIcon.png",
+        completed: false,
+        completionDate: "January 2023",
+        tags: ["java", "independent", "small"],
+        caption: "A reimagination of the classic game Space Invaders. Developed in the Processing IDE.",
+        description: "Add later",
+        githubURL: "Add later"
     }
 ]
 
@@ -80,9 +102,9 @@ const ProjectCard = ({ visible, project, animationDelay = "0s" }) => {
     );
 }
 
-const Grid = ({ visible }) => (
+const Grid = ({ visible, page }) => (
     <div className="projectGrid gap">
-        {projectList.map((project, i) => (
+        {page.map((project, i) => (
             <ProjectCard visible={visible} project={project} key={i} animationDelay={(i * .1) + "s"}/>
         ))}
     </div>
@@ -90,18 +112,20 @@ const Grid = ({ visible }) => (
 
 
 const Projects = forwardRef(({ visible, scale }, ref) => {
+    const itemsPerPage = scale === 1 ? 2 : 6;
     const [pageNum, setPageNum] = useState(1)
 
-
+    const page = projectList.slice((pageNum - 1) * itemsPerPage, ((pageNum - 1) * itemsPerPage) + itemsPerPage)
+  
     return (
         <div ref={ref} className="section" id="Projects">
             {scale > 1 ? (
                 <div className="flex col fullWidth fullHeight gap">
                     <div className={"projectsHeader textGlow transparent cardPdLeft cardPdRight " + (visible && "fadeInFastest")}>
                         <div className="title">Proj<span className="lightestBlue">ects</span></div>
-                        <PageMenu pageNum={pageNum} visible={visible} />
+                        {itemsPerPage <= projectList.length && <PageMenu pageNum={pageNum} visible={visible} />}
                     </div>
-                    <Grid visible={visible} />
+                    <Grid visible= {visible} page = {page}/>
                 </div>
             ) : (
                 <div className="flex row fullWidth fullHeight">
@@ -117,7 +141,7 @@ const Projects = forwardRef(({ visible, scale }, ref) => {
                     </div>
                     <div className="flex col gap alignEnd">
                         <PageMenu pageNum={pageNum} visible={visible} />
-                        <Grid visible={visible} />
+                        <Grid visible={visible} page = {page} />
                     </div>
                 </div>
             )}

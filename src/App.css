@@ -753,7 +753,7 @@ input:focus, textarea:focus {
   flex-direction: column;
   box-sizing: border-box;
   padding: calc(5px * max(var(--scale), 2));
-  height: calc(70px * max(var(--scale), 2));
+  height: calc(73px * max(var(--scale), 2));
 }
 
 .tagContainer {
