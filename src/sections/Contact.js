@@ -1,102 +1,75 @@
 import "../App.css";
-import { forwardRef} from "react"
+import AnimatedCard from "../components/AnimatedCard";
+import LabeledIcon from "../components/LabeledIcon"
+import { forwardRef, useRef } from "react"
 
-const Contact = forwardRef(({visible}, ref) => {
+const Contact = forwardRef(({ visible }, ref) => {
+    const form = useRef()
+
+    const submit = async (e) => {
+        e.preventDefault();
+        const curr = form.current;
+        const submittedData = {
+            name: curr.name.value,
+            email: curr.email.value,
+            message: curr.message.value
+        }
+
+        try {
+            const res = await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(submittedData)
+            })
+
+            if (res.ok) {
+                curr.reset()
+            } else {
+                console.log("There's been an error");
+            }
+        } catch (err) {
+            console.log("POST failed: ", err)
+        }
+    }
+
     return (
-        <div ref = {ref} className="section gap" id="Contact">
+        <div ref={ref} className="section gap" id="Contact">
             <div className="contactInfo gap">
                 <div className={"title transparent textGlow cardPdLeft" + (visible && " fadeInFastest")}> Contact <span className="lightestBlue"> Me </span></div>
-                <div className= {"card transparent contactCard cardPdBottom cardPdTop cardPdLeft" + (visible && " fadeInFast")}>
-                    <div className="subtitle lightestBlue textPdLeft textPdTop textPdBottom"> Socials </div>
-
+                <AnimatedCard className = "contactCard" visible={visible} titleType="subtitle" title="Socials">
                     <a href="https://www.linkedin.com/in/nadden-auguste-laventure-0662a6314/" target="_blank" rel="noopener noreferrer">
-                        <div className="textPdLeft textPdBottom iconWithText enlargeOnHover">
-                            <div className = "lightestBlue icon">
-                                <img className = "iconImage" src="imgs/linkedinIcon.png" alt="LinkedIn" />
-                                <div className = "radialGlow"/>
-                            </div>
-                
-                            <div className="iconText">
-                                <div className="medium">LinkedIn</div>
-                                <div className="small lightGrey">Nadden Auguste-Laventure</div>
-                            </div>
-                        </div>
+                        <LabeledIcon className="textPdBottom" src="imgs/linkedinIcon.png" text="Linkedin" description="Nadden Auguste-Laventure" />
                     </a>
 
                     <a href="https://github.com/nalav816" target="_blank" rel="noopener noreferrer">
-                        <div className="textPdLeft iconWithText enlargeOnHover">
-                            <div className = "black icon">
-                                <img className="iconImage" src="imgs/githubIcon.png" alt="Github" />
-                                <div className = "radialGlow"/>
-                            </div>
-                            
-                            <div className="iconText">
-                                <div className="medium">Github</div>
-                                <div className="small lightGrey">@nalav816</div>
-                            </div>
-                        </div>
+                        <LabeledIcon color="black" src="imgs/githubIcon.png" text="Github" description="@nalav816" />
                     </a>
-                </div>
+                </AnimatedCard>
 
-                <div className={"card transparent contactCard cardPdBottom cardPdTop cardPdLeft" + (visible && " fadeInFast")} style = {{animationDelay: ".1s"}}>
-                    <div className="subtitle lightestBlue textPdLeft textPdTop textPdBottom"> Contact Info </div>
-                    <div className="textPdLeft textPdBottom iconWithText enlargeOnHover">
-                        <div className = "lightestBlue icon">
-                            <img className="iconImage" src="imgs/phoneIcon.png" alt="Phone" />
-                            <div className = "radialGlow"/>
-                        </div>
-                        
-                        <div className="iconText">
-                            <div className="medium">Phone</div>
-                            <div className="small lightGrey">929-424-9627</div>
-                        </div>
-                    </div>
-
-                    <div className="textPdLeft textPdBottom iconWithText enlargeOnHover">
-                        <div className = "lightestBlue icon">
-                            <img className="iconImage" src="imgs/emailIcon.png" alt="Email" />
-                            <div className = "radialGlow"/>
-                        </div>
-
-                        <div className="iconText">
-                            <div className="medium">Email</div>
-                            <div className="small lightGrey">nalaventure123@gmail.com</div>
-                        </div>
-                    </div>
-
-                    <div className="textPdLeft iconWithText enlargeOnHover">
-                         <div className = "lightestBlue icon">
-                            <img className="iconImage" src="imgs/locationIcon.png" alt="Location" />
-                            <div className = "radialGlow"/>
-                        </div>
-
-                        <div className="iconText">
-                            <div className="medium">Location</div>
-                            <div className="small lightGrey">Brooklyn, NY, USA</div>
-                        </div>
-                    </div>
-                </div>
+                <AnimatedCard className = "contactCard" visible={visible} titleType="subtitle" title="Contact Info" animationDelay=".1s">
+                    <LabeledIcon className="textPdBottom" src="imgs/phoneIcon.png" text="Phone" description="929-424-9627" />
+                    <LabeledIcon className="textPdBottom" src="imgs/emailIcon.png" text="Email" description="nalaventure123@gmail.com" />
+                    <LabeledIcon src="imgs/locationIcon.png" text="Location" description="Brooklyn, NY, USA" />
+                </AnimatedCard>
             </div>
-
-            <div className={"card transparent contactCard cardFillHeight messageCard cardPdTop cardPdLeft cardPdBottom cardPdRight" + (visible && " fadeInFast")} style = {{animationDelay: ".2s"}}>
-                <div className="subtitle lightestBlue textPdBottom"> Direct Message </div>
-                <form>
+            <AnimatedCard className = "contactCard cardFillHeight messageCard" visible={visible} titleType="subtitle" title="Direct Message" animationDelay=".2s" rightPadded = {true}>
+                <form ref={ref} onSubmit={submit}>
                     <div>
-                        <label htmlFor = "name" className = "medium"> Name </label>
-                        <input className = "small" type = "text" placeholder = "Type your name here..." id = "name" required/>
+                        <label htmlFor="name" className="medium"> Name </label>
+                        <input className="small" type="text" placeholder="Type your name here..." id="name" name="name" required />
                     </div>
                     <div>
-                        <label htmlFor = "email" className = "medium"> Email </label>
-                        <input className = "small" type = "text" placeholder = "Type your email here..." id = "email" inputMode="email" required/> 
+                        <label htmlFor="email" className="medium"> Email </label>
+                        <input className="small" type="text" placeholder="Type your email here..." id="email" name="email" inputMode="email" required />
                     </div>
                     <div>
-                        <label htmlFor = "message" className = "medium"> Message </label>
-                        <textarea className = "small" placeholder = "Type your message here..." id = "message" required/> 
+                        <label htmlFor="message" className="medium"> Message </label>
+                        <textarea className="small" placeholder="Type your message here..." id="message" name="message" required />
                     </div>
-                    
-                    <button className = "styledButton bigButton enlargeOnHover" type = "submit"> Send </button>
+                    <button className="styledButton bigButton enlargeOnHover" type="submit" style = {{marginTop: "auto"}}> Send </button>
                 </form>
-            </div>
+            </AnimatedCard>
+
         </div>
     )
 })
