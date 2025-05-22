@@ -1,7 +1,7 @@
 const nodemailer = require('nodemailer');
 
 export default async function handler(req, res) {
-    if (req.Method !== "POST") {
+    if (req.method !== "POST") {
         return res.status(405).send("This api only accepts post request")
     }
 
