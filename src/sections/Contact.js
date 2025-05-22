@@ -39,7 +39,7 @@ const Contact = forwardRef(({ visible }, ref) => {
         try {
             setButtonText("Sending...");
             setIsButtonActive(false);
-            const res = await fetch("/api/contact", {
+            const res = await fetch("/api/contactManager", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(submittedData)
