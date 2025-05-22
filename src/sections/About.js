@@ -17,7 +17,7 @@ const About = forwardRef(({visible, isMobile, scale}, ref) => {
                 {isMobile && (
                     <img className = "portrait" src = "imgs/portrait.jpg" alt = "portrait"/>
                 )}
-                <div className = "small lightGrey descTextPd"> 
+                <div className = "small grey descTextPd"> 
                     To create is to be impactful. 
                     Ever since I was a kid, I’ve loved taking things past face value. 
                     Plenty of useful things in our lives seemingly just exist, but how do they exist? 
@@ -33,8 +33,8 @@ const About = forwardRef(({visible, isMobile, scale}, ref) => {
                         <img className = "novaIconShadow" src = "imgs/novaIcon.png" alt = "Shadow"/>
                         <div style = {{gap: "1%"}}className = "flex col cardPdLeft">
                             <div className = "big blue "> Villanova University </div>
-                            <div className = "lightGrey small" style = {{paddingRight: "10%"}}> Bachelor of Science In Computer Science</div>
-                            <div className = "lightGrey small"> June 2024 - May 2028 </div>
+                            <div className = "grey small" style = {{paddingRight: "10%"}}> Bachelor of Science In Computer Science</div>
+                            <div className = "grey small"> June 2024 - May 2028 </div>
                             <div className = "small"> GPA: 3.83 </div>
                         </div>
                     </div>

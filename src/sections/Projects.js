@@ -96,14 +96,14 @@ const ProjectCard = ({ visible, project, animationDelay = "0s" }) => {
             <img className="projectImageIcon" src={project.icon} alt="project icon" />
             <div className="projectCardInfoContainer">
                 <div className="medium"> {project.name} </div>
-                <div className="small lightGrey"> {(project.completed ? "Completion Date: " : "Expected Date: ") + project.completionDate} </div>
+                <div className="small grey"> {(project.completed ? "Completion Date: " : "Expected Date: ") + project.completionDate} </div>
 
                 <div className="tagContainer">
                     {project.tags.map((tag, i) => (
                         <div className={"projectTag " + projectTags[tag].color} key={i}> {projectTags[tag].name} </div>
                     ))}
                 </div>
-                <div className="small lightGrey"> {project.caption} </div>
+                <div className="small grey"> {project.caption} </div>
                 <button onClick={() => toggleDropdown(true)} className="styledButton smallButton projectButton enlargeOnHover"> Learn More </button>
             </div>
             {dropDownToggled && (
@@ -113,7 +113,7 @@ const ProjectCard = ({ visible, project, animationDelay = "0s" }) => {
                     <a href={project.completed ? project.githubURL : undefined}
                         target="_blank" rel="noopener noreferrer"
                         className={(project.completed ? "styledButton blue enlargeOnHover " : "disabledButton ") + "smallButton projectButton"}
-                    ><div className="small white">{project.completed ? "Source" : "Coming Soon"}</div> </a>
+                    ><div className={"small" + (project.completed ? " white" : " grey")}>{project.completed ? "Source" : "Coming Soon"}</div> </a>
                 </div>
             )}
         </AnimatedCard>

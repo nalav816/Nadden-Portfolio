@@ -70,6 +70,10 @@ button:hover {
   cursor: pointer;
 }
 
+button:disabled {
+  cursor: default;
+}
+
 label {
   display: block;
 }
@@ -174,7 +178,7 @@ input:focus, textarea:focus {
   color: var(--white);
 }
 
-.lightGrey{
+.grey{
   --color: var(--grey);
   --shadow: var(--darkGrey);
   --darkShadow: var(--darkestGrey);
@@ -202,6 +206,14 @@ input:focus, textarea:focus {
   color: var(--color)
 }
 
+.lightRed {
+  --color: var(--lightRed);
+  --highlight: var(--orange);
+  --shadow: var(--red);
+  --darkShadow: var(--darkRed);
+  color: var(--color);
+
+}
 .red {
   --color: var(--red);
   --highlight: var(--lightRed);
@@ -392,6 +404,7 @@ input:focus, textarea:focus {
 
 .disabledButton {
   background-color: var(--darkestGrey);
+  color: var(--grey);
   box-shadow: 0px 4px 10px var(--darkestBlue);
 }
 
@@ -516,6 +529,8 @@ input:focus, textarea:focus {
   left: 0;
   right: 0;
   display: flex;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
   padding: 7px calc((100% - var(--baseWidth) * var(--scale))/2);
   align-content: center;
   justify-content: space-between;
@@ -534,6 +549,8 @@ input:focus, textarea:focus {
 
 .navItemsMobile{
   gap: 10px;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
   background-color: rgb(from var(--bluishBlack) r g b / 70%); 
   box-shadow: 0 0px 6px 0px rgb(from var(--bluishBlack) r g b / 100%); ;
   position: absolute;
@@ -570,7 +587,7 @@ input:focus, textarea:focus {
   left: 0;
   height: 3px;
   width: 100%;
-  background: linear-gradient(to right, var(--lightBlue), var(--blue));
+  background: linear-gradient(to left, var(--lightBlue), var(--blue));
   transform: scaleX(0);
   transform-origin: top left;
   transition: transform .2s ease;
@@ -810,6 +827,25 @@ input:focus, textarea:focus {
   flex-direction: column;
 }
 
+.popup {
+  top: 10%;
+  left: 50%;
+  position: fixed;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  width: calc(100px * max(var(--scale), 2));
+  height: calc(20px * max(var(--scale), 2));
+  line-height: calc(20px * max(var(--scale), 2));
+  text-align: center;
+  background-color: rgb(from var(--bluishBlack) r g b / 70%); 
+  box-shadow: 0px 0px 12px rgb(from var(--bluishBlack) r g b / 100%); 
+  animation: popup 3s ease forwards;
+}
+
+.footer {
+  text-align: center;
+  padding-top: calc(var(--topPadding)/2);
+}
 /* Keyframes */
 @keyframes slideDown {
   from {
@@ -879,5 +915,17 @@ input:focus, textarea:focus {
     transform: translateY(15px)
   } 100% {
     transform: translateY(0px)
+  }
+}
+
+@keyframes popup {
+  0% {
+    transform: translate(-50%, -400%);
+  } 20% {
+    transform: translate(-50%, 0px);
+  } 80% {
+    transform: translate(-50%, 0px);
+  } 100% {
+    transform: translate(-50%, -400%);
   }
 }

@@ -11,7 +11,7 @@ function LabeledIcon({color = "lightestBlue", textColor = "white", src = "imgs/p
 
             <div className = "iconText">
                 <div className = {"medium " + textColor}> {text} </div>
-                <div className = "small lightGrey"> {description} </div>
+                <div className = "small grey"> {description} </div>
             </div>
         </div>
     );
