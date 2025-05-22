@@ -16,7 +16,7 @@ export default async function handler(req, res) {
     })
 
     const mail = {
-        from: process.env.SENDER_USER,
+        from: `"NPortfolio" <${process.env.SENDER_USER}>`,
         to: process.env.MY_USER,
         subject: `Portfolio Message From ${name}`,
         text: message,
