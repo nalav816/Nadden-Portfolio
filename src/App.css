@@ -529,8 +529,6 @@ input:focus, textarea:focus {
   left: 0;
   right: 0;
   display: flex;
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
   padding: 7px calc((100% - var(--baseWidth) * var(--scale))/2);
   align-content: center;
   justify-content: space-between;
@@ -549,8 +547,6 @@ input:focus, textarea:focus {
 
 .navItemsMobile{
   gap: 10px;
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
   background-color: rgb(from var(--bluishBlack) r g b / 70%); 
   box-shadow: 0 0px 6px 0px rgb(from var(--bluishBlack) r g b / 100%); ;
   position: absolute;
@@ -831,8 +827,6 @@ input:focus, textarea:focus {
   top: 10%;
   left: 50%;
   position: fixed;
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
   width: calc(100px * max(var(--scale), 2));
   height: calc(20px * max(var(--scale), 2));
   line-height: calc(20px * max(var(--scale), 2));
