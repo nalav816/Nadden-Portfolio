@@ -691,7 +691,8 @@ input:focus, textarea:focus {
 }
 
 .portraitVisible {
-  animation: portrait .8s ease forwards;
+  animation: portrait 1s ease forwards;
+  animation-delay: .4s;
 }
 
 /* Projects Section */
