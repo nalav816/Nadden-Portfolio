@@ -5,6 +5,6 @@ A website built in ReactJS that showcases the rest of my projects. Features incl
 1) You can view the live version at (https://nadden-portfolio.vercel.app/).
 2) Alternatively, clone the repository.
 3) Install any dependencies.
-4) Run the project by typing npm start in the terminal.
+4) Run the project by typing "npm start" in the terminal.
 
 
