@@ -21,8 +21,8 @@ const projectList = [
         completionDate: "December 2023",
         tags: ["java", "independent", "small"],
         caption: "A program which simulates planetary gravitational motion. Made in the Processing IDE.",
-        description: " Write later",
-        githubURL: " "
+        description: "  Planet Sim is a mathematical model of real-world astrophysics featuring all 8 planets, the sun, and a rogue star that flies by the solar system. Every planetary body exerts a gravitational pull on every other. In addition, the simulation features temperature estimations for every planet based on energy received from the sun. Other systems include zooming in and out, relative sizing, variable simulation speed, and hover infographics.",
+        githubURL: "https://github.com/nalav816/Planet-Sim"
     },
 
     {
@@ -32,7 +32,7 @@ const projectList = [
         completionDate: "January 2023",
         tags: ["java", "independent", "small"],
         caption: "A reimagination of the classic game Space Invaders. Developed in the Processing IDE.",
-        description: "This project is a competitive reimagination of the classic arcade game Space Invaders. The gameplay consists of two players attempting to shoot each other down, but there are alien ships in the way that must be overcome first. However, these enemy ships aren’t just obstacles. Destroying them strengthens the player’s ship, adding a strategic element to the gameplay. \n    On the technical side, this project features modular object-oriented classes, sound integration using the Processing sound library, real-time input handling, and state management.",
+        description: "  This project is a competitive reimagination of the classic arcade game Space Invaders. The gameplay consists of two players attempting to shoot each other down, but there are alien ships in the way that must be overcome first. However, these enemy ships aren’t just obstacles. Destroying them strengthens the player’s ship, adding a strategic element to the gameplay. \n    On the technical side, this project features modular object-oriented classes, sound integration using the Processing sound library, real-time input handling, and state management.",
         githubURL: "https://github.com/nalav816/Space-Invaders"
     }
 ]

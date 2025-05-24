@@ -728,7 +728,7 @@ input:focus, textarea:focus {
   display: grid;
   width: 100%;
   grid-template-columns: repeat(3, calc((var(--baseWidth) * var(--scale))/3 - (var(--cardGap) * var(--scale) * 2)/3));
-  grid-template-rows: repeat(2, calc(130px * var(--scale)));
+  grid-auto-rows: calc(130px * var(--scale));
   gap: calc(var(--cardGap) * var(--scale));
 }
 
