@@ -590,12 +590,17 @@ input:focus, textarea:focus {
 }
 
 /* Home Section */
+.homeCard{
+  width: calc(var(--scale) * var(--baseWidth));
+  height: calc(var(--scale) * var(--baseHeight));
+}
+
 .homeTitle {
   font-size: calc(25px * var(--scale));
 }
 
 .homeImage{
-  width: calc(var(--scale) * var(--baseWidth));
+  width: 100%;
 }
 
 .homeLayeredImage{

@@ -13,7 +13,7 @@ function Home(){
 
     return (
         <div className= "section relPos firstLayer" id = "Home">
-            <div className = "card">
+            <div className = "card homeCard">
                 <img className="homeImage" src = "imgs/homeBackground.png" alt = "Home Art"/>
                 <div className = "homeLayeredImage  clipContent">
                     {stars}
