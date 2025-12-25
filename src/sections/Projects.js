@@ -4,12 +4,12 @@ import { forwardRef, useState } from "react";
 
 const projectList = [
     {
-        name: "Probable Suspect (WIP)",
+        name: "Probable Suspect",
         icon: "imgs/probableSuspectIcon.png",
-        completed: false,
-        completionDate: "June 2025",
+        completed: true,
+        completionDate: "December 2025",
         tags: ["java", "independent", "medium"],
-        caption: "A murder mystery game built on Java and the Swing framework. Made in VSCode. Currently a work in progress.",
+        caption: "A murder mystery game built on Java and the Swing framework. Made in VSCode.",
         description: "  In Probable Suspect, following a murder, the player attains randomized clues through interrogating procedurally generated witnesses. Given these clues, the player is then tasked with choosing the correct suspect. \n    Though the lack of a game engine wasn’t ideal for the game’s scope, it has provided the opportunity to engage with and understand technologies often taken for granted, such as collision detection. In addition to those mentioned earlier, this game uses a variety of systems, including but not limited to branching character dialogue, event-driven gameplay, multithreading, and UI interpolation.",
         githubURL: "https://github.com/nalav816/Probable-Suspect"
     },
