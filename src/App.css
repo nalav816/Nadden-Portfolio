@@ -723,7 +723,7 @@ input:focus, textarea:focus {
   display: flex;
   flex-direction: column;
   padding-top: 30px;
-  gap: 37px;
+  gap: 48px;
   width: calc(var(--baseWidth) - 204px - var(--cardGap));
   align-items: center;
 }
