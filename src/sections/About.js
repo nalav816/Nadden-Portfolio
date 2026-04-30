@@ -42,10 +42,10 @@ const About = forwardRef(({visible, isMobile, scale}, ref) => {
                 <AnimatedCard visible = {visible} className = "skillCard" animationDelay=".2s" titleType="subtitle" title = "Skills">
                     <div className = "flex col">
                         <LabeledIcon className = "textPdBottom" color = "orange" textColor = "orange" text = "Java" description="Intermediate" src = "imgs/java.png"/>
-                        <LabeledIcon className = "textPdBottom" color = "lightestBlue" textColor = "lightestBlue" text = "Python" description="Novice" src = "imgs/python.png"/>
-                        <LabeledIcon className = "textPdBottom" color = "red" textColor = "red" text = "HTML" description="Novice" src = "imgs/html.png"/>
-                        <LabeledIcon className = "textPdBottom" color = "blue" textColor = "blue" text = "CSS" description="Novice" src = "imgs/css.png"/>
-                        <LabeledIcon className = "textPdBottom" color = "yellow" textColor = "yellow" text = "JavaScript" description="Novice" src = "imgs/javaScript.png"/>
+                        <LabeledIcon className = "textPdBottom" color = "lightestBlue" textColor = "lightestBlue" text = "Python" description="Intermediate" src = "imgs/python.png"/>
+                        <LabeledIcon className = "textPdBottom" color = "red" textColor = "red" text = "HTML" description="Intermediate" src = "imgs/html.png"/>
+                        <LabeledIcon className = "textPdBottom" color = "blue" textColor = "blue" text = "CSS" description="Intermediate" src = "imgs/css.png"/>
+                        <LabeledIcon className = "textPdBottom" color = "yellow" textColor = "yellow" text = "JavaScript" description="Intermediate" src = "imgs/javaScript.png"/>
                     </div>
                 </AnimatedCard>
             </div>

@@ -1,0 +1,34 @@
+[
+    {
+        "name": "Probable Suspect",
+        "icon": "imgs/probableSuspectIcon.png",
+        "completed": true,
+        "completionDate": "December 2025",
+        "tags": ["java", "independent", "medium"],
+        caption: "A murder mystery game built on Java and the Swing framework. Made in VSCode.",
+        description: "  In Probable Suspect, following a murder, the player attains randomized clues through interrogating procedurally generated witnesses. Given these clues, the player is then tasked with choosing the correct suspect. \n    Though the lack of a game engine wasn’t ideal for the game’s scope, it has provided the opportunity to engage with and understand technologies often taken for granted, such as collision detection. In addition to those mentioned earlier, this game uses a variety of systems, including but not limited to branching character dialogue, event-driven gameplay, multithreading, and UI interpolation.",
+        githubURL: "https://github.com/nalav816/Probable-Suspect"
+    },
+
+    {
+        name: "Planet Sim",
+        icon: "imgs/planetSimIcon.png",
+        completed: true,
+        completionDate: "December 2023",
+        tags: ["java", "independent", "small"],
+        caption: "A program which simulates planetary gravitational motion. Made in the Processing IDE.",
+        description: "  Planet Sim is a mathematical model of real-world astrophysics featuring all 8 planets, the sun, and a rogue star that flies by the solar system. Every planetary body exerts a gravitational pull on every other. In addition, the simulation features temperature estimations for every planet based on energy received from the sun. Other systems include zooming in and out, relative sizing, variable simulation speed, and hover infographics.",
+        githubURL: "https://github.com/nalav816/Planet-Sim"
+    },
+
+    {
+        name: "Space Invaders",
+        icon: "imgs/spaceInvadersIcon.png",
+        completed: true,
+        completionDate: "January 2023",
+        tags: ["java", "independent", "small"],
+        caption: "A reimagination of the classic game Space Invaders. Developed in the Processing IDE.",
+        description: "  This project is a competitive reimagination of the classic arcade game Space Invaders. The gameplay consists of two players attempting to shoot each other down, but there are alien ships in the way that must be overcome first. However, these enemy ships aren’t just obstacles. Destroying them strengthens the player’s ship, adding a strategic element to the gameplay. \n    On the technical side, this project features modular object-oriented classes, sound integration using the Processing sound library, real-time input handling, and state management.",
+        githubURL: "https://github.com/nalav816/Space-Invaders"
+    }
+]

@@ -250,7 +250,7 @@ input:focus, textarea:focus {
 
 /* Fonts */
 .title {
-  font-size: calc(20px * var(--scale));
+  font-size: calc(18px * var(--scale));
 }
 
 .subtitle{
@@ -304,7 +304,6 @@ input:focus, textarea:focus {
 .card{
   position: relative;
   background: radial-gradient(circle, #323342, #232533);
-  box-shadow: 0 10px 8px rgb(from #05050a r g b/70%);
   display: flex;
   box-sizing: border-box;
   flex-direction: column;
@@ -374,7 +373,7 @@ input:focus, textarea:focus {
 /* Button */
 .styledButton {
   background: radial-gradient(circle, var(--color, var(--lightestBlue)), var(--shadow, var(--blue)));
-  box-shadow: 0px 2px 10px var(--highlight, var(--lightestBlue));
+  box-shadow: 0px 2px 3px var(--highlight, var(--lightestBlue));
 }
 
 @media (min-width: 1025px) {
@@ -596,7 +595,7 @@ input:focus, textarea:focus {
 }
 
 .homeTitle {
-  font-size: calc(25px * var(--scale));
+  font-size: calc(18px * var(--scale));
 }
 
 .homeImage{
@@ -685,7 +684,7 @@ input:focus, textarea:focus {
   top: calc(80px * var(--scale));
   width: calc(70px * var(--scale));
   height: calc(105px * var(--scale));
-  box-shadow: 0px 8px 8px var(--black);
+  border: 1px solid rgb(from var(--blue) r g b / 95%);
 }
 
 @media (max-width: 1024px){
