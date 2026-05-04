@@ -11,7 +11,7 @@ const Navitem = ({type, sectionInView, isMobile, toggleMenu}) => {
 
     return (
          <a href= {"#" + type} className="relPos" onClick = {onClick}> 
-            <div className={sectionInView ? (isMobile ? "lightestBlue" : "") : "upOnHover blueOnHover"}> {type} </div>
+            <div className={sectionInView ? (isMobile ? "lightestBlue small" : "small") : "small upOnHover blueOnHover"}> {type} </div>
             {sectionInView && !isMobile && (<div className="navItemLine" />)}
         </a>
     )
@@ -46,7 +46,7 @@ function Navbar({ sections, isMobile }) {
                         <div className="radialGlow" />
                     </div>
                 </a>
-                <div>N<span className="lightestBlue">A</span></div>
+                <div className="small">N<span className="lightestBlue">A</span></div>
             </div>
 
             {!isMobile ? (

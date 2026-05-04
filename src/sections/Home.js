@@ -20,8 +20,8 @@ function Home(){
                     <Comet />
                     <Comet />
                 </div>
-                <img className = "homeLayeredImage" src = "imgs/homeClouds.png" alt = "Home Art"/>
-                <img className = "homeLayeredImage" src = "imgs/homeObjects.png" alt = "Home Art"/>
+                <img style={{filter: 'blur(2px)'}} className = "homeLayeredImage" src = "imgs/homeClouds.png" alt = "Home Art"/>
+                <img style={{filter: 'blur(1px)'}} className = "homeLayeredImage" src = "imgs/homeObjects.png" alt = "Home Art"/>
                 <img className="homeLayeredImage angel" src = "imgs/angel.png" alt = "Angel"/>
 
                  <div className = "titleBox">

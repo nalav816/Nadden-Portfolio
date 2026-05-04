@@ -32,7 +32,7 @@ const About = forwardRef(({visible, isMobile, scale}, ref) => {
                         <img className = "novaIcon" src = "imgs/novaIcon.png" alt = "Villanova"/>
                         <img className = "novaIconShadow" src = "imgs/novaIcon.png" alt = "Shadow"/>
                         <div style = {{gap: "1%"}}className = "flex col cardPdLeft">
-                            <div className = "big blue "> Villanova University </div>
+                            <div style= {{paddingRight: '8px'}} className = "big blue "> Villanova University </div>
                             <div className = "grey small" style = {{paddingRight: "10%"}}> Bachelor of Science In Computer Science</div>
                             <div className = "grey small"> June 2024 - May 2028 </div>
                             <div className = "small"> GPA: 3.83 </div>
