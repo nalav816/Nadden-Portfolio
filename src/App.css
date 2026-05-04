@@ -95,7 +95,7 @@ input {
   font: inherit;
   font-size: inherit;
   color: var(--grey);
-  box-shadow: 0px 3px 5px var(--black);
+ 
 }
 
 textarea {
@@ -108,7 +108,7 @@ textarea {
   font: inherit;
   font-size: inherit;
   color: var(--grey);
-  box-shadow: 0px 3px 5px var(--black);
+  
 }
 
 input::placeholder, textarea::placeholder {
@@ -143,6 +143,14 @@ input:focus, textarea:focus {
   --shadow: var(--blue);
   --darkShadow: var(--darkBlue);
   --highlight: var(--lightBlue);
+  color: var(--color);
+}
+
+.lightBlue {
+  --color: var(--lightBlue);
+  --shadow: var(--blue);
+  --darkShadow: var(--darkBlue);
+  --highlight: var(--lightestBlue);
   color: var(--color);
 }
 
@@ -250,23 +258,23 @@ input:focus, textarea:focus {
 
 /* Fonts */
 .title {
-  font-size: calc(20px * var(--scale));
+  font-size: 20px;
 }
 
 .subtitle{
-  font-size: calc(17.5px * var(--scale));
+  font-size: 19px;
 }
 
 .big {
-  font-size: calc(10.5px * max(var(--scale), 2));
+  font-size: 18px;
 }
 
 .medium {
-  font-size: max(16px, calc(8px * var(--scale)));
+  font-size: 16px;
 }
 
 .small {
-  font-size: max(10px, calc(6px * var(--scale)));
+  font-size: max(10px, calc(6px * min(2, var(--scale))));
 }
 
 .center{
@@ -304,7 +312,6 @@ input:focus, textarea:focus {
 .card{
   position: relative;
   background: radial-gradient(circle, #323342, #232533);
-  box-shadow: 0 10px 8px rgb(from #05050a r g b/70%);
   display: flex;
   box-sizing: border-box;
   flex-direction: column;
@@ -356,6 +363,7 @@ input:focus, textarea:focus {
   width: 100%;
   z-index: 3;
   border-radius: 10%;
+  image-rendering: pixelated;
 }
 
 .iconWithText {
@@ -374,20 +382,20 @@ input:focus, textarea:focus {
 /* Button */
 .styledButton {
   background: radial-gradient(circle, var(--color, var(--lightestBlue)), var(--shadow, var(--blue)));
-  box-shadow: 0px 2px 10px var(--highlight, var(--lightestBlue));
+ 
 }
 
 @media (min-width: 1025px) {
   .styledButton:hover {
     background: radial-gradient(circle, var(--shadow, var(--blue)), var(--darkShadow, var(--darkBlue)));
-    box-shadow: 0px 3px 10px var(--darkShadow, var(--darkBlue));
+    
   }
 }
 
 .medButton {
-  width: calc(66px * var(--scale));
-  height: calc(11px * var(--scale));
-  line-height: calc(11px * var(--scale));
+  width: 120px;
+  height: 20px;
+  line-height: 20px;
 }
 
 .bigButton {
@@ -397,9 +405,9 @@ input:focus, textarea:focus {
 }
 
 .smallButton {
-  width: calc(40px * max(2, var(--scale)));
-  height: calc(9px * max(2, var(--scale)));
-  line-height: calc(max(8px * var(--scale), 16px));
+  width: 80px;
+  height: 18px;
+  line-height: 18px;
 }
 
 .disabledButton {
@@ -596,11 +604,12 @@ input:focus, textarea:focus {
 }
 
 .homeTitle {
-  font-size: calc(25px * var(--scale));
+  font-size: calc(19px * var(--scale));
 }
 
 .homeImage{
   width: 100%;
+  image-rendering: pixelated;
 }
 
 .homeLayeredImage{
@@ -609,6 +618,7 @@ input:focus, textarea:focus {
   height: 100%;
   top: 0px;
   left: 0px;
+  image-rendering: pixelated;
 }
 
 .titleBox{
@@ -624,6 +634,7 @@ input:focus, textarea:focus {
   top: calc((22px * var(--scale)) * - 3.5);
   height: calc(22px * var(--scale));
   width: calc(22px * var(--scale));
+  image-rendering: pixelated;
 }
 
 .star {
@@ -685,7 +696,7 @@ input:focus, textarea:focus {
   top: calc(80px * var(--scale));
   width: calc(70px * var(--scale));
   height: calc(105px * var(--scale));
-  box-shadow: 0px 8px 8px var(--black);
+  border: 1px solid rgb(from var(--blue) r g b / 95%);
 }
 
 @media (max-width: 1024px){
@@ -724,7 +735,7 @@ input:focus, textarea:focus {
   display: flex;
   flex-direction: column;
   padding-top: 30px;
-  gap: 37px;
+  gap: 48px;
   width: calc(var(--baseWidth) - 204px - var(--cardGap));
   align-items: center;
 }

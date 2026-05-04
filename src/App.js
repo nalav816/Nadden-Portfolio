@@ -29,9 +29,9 @@ function App() {
       while(baseHeight * multiplier > window.innerHeight - vertPadding && multiplier > 1){
         multiplier -= 1;
       }
-     
-      document.documentElement.style.setProperty('--scale', multiplier);
-      setScale(multiplier);
+      
+      document.documentElement.style.setProperty('--scale', Math.min(2, multiplier));
+      setScale(Math.min(2, multiplier));
     }
 
     const handleResize = () => {
@@ -43,6 +43,8 @@ function App() {
     window.addEventListener("resize", handleResize)
     return () => {window.removeEventListener("resize", handleResize)}
   }, [])
+
+  console.log(scale)
 
   return (
     <MainPage isMobile = {isMobile} scale = {scale}/>

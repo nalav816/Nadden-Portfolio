@@ -32,7 +32,7 @@ const About = forwardRef(({visible, isMobile, scale}, ref) => {
                         <img className = "novaIcon" src = "imgs/novaIcon.png" alt = "Villanova"/>
                         <img className = "novaIconShadow" src = "imgs/novaIcon.png" alt = "Shadow"/>
                         <div style = {{gap: "1%"}}className = "flex col cardPdLeft">
-                            <div className = "big blue "> Villanova University </div>
+                            <div style= {{paddingRight: '8px'}} className = "big blue "> Villanova University </div>
                             <div className = "grey small" style = {{paddingRight: "10%"}}> Bachelor of Science In Computer Science</div>
                             <div className = "grey small"> June 2024 - May 2028 </div>
                             <div className = "small"> GPA: 3.83 </div>
@@ -42,10 +42,10 @@ const About = forwardRef(({visible, isMobile, scale}, ref) => {
                 <AnimatedCard visible = {visible} className = "skillCard" animationDelay=".2s" titleType="subtitle" title = "Skills">
                     <div className = "flex col">
                         <LabeledIcon className = "textPdBottom" color = "orange" textColor = "orange" text = "Java" description="Intermediate" src = "imgs/java.png"/>
-                        <LabeledIcon className = "textPdBottom" color = "lightestBlue" textColor = "lightestBlue" text = "Python" description="Novice" src = "imgs/python.png"/>
-                        <LabeledIcon className = "textPdBottom" color = "red" textColor = "red" text = "HTML" description="Novice" src = "imgs/html.png"/>
-                        <LabeledIcon className = "textPdBottom" color = "blue" textColor = "blue" text = "CSS" description="Novice" src = "imgs/css.png"/>
-                        <LabeledIcon className = "textPdBottom" color = "yellow" textColor = "yellow" text = "JavaScript" description="Novice" src = "imgs/javaScript.png"/>
+                        <LabeledIcon className = "textPdBottom" color = "lightestBlue" textColor = "lightestBlue" text = "Python" description="Intermediate" src = "imgs/python.png"/>
+                        <LabeledIcon className = "textPdBottom" color = "red" textColor = "red" text = "HTML" description="Intermediate" src = "imgs/html.png"/>
+                        <LabeledIcon className = "textPdBottom" color = "blue" textColor = "blue" text = "CSS" description="Intermediate" src = "imgs/css.png"/>
+                        <LabeledIcon className = "textPdBottom" color = "yellow" textColor = "yellow" text = "JavaScript" description="Intermediate" src = "imgs/javaScript.png"/>
                     </div>
                 </AnimatedCard>
             </div>

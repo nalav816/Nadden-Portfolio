@@ -101,7 +101,7 @@ const Contact = forwardRef(({ visible }, ref) => {
         <div ref={ref} className="section gap" id="Contact">
             <div className="contactInfo gap">
                 <div className={"title transparent textGlow cardPdLeft" + (visible && " fadeInFastest")}> Contact <span className="lightestBlue"> Me </span></div>
-                <AnimatedCard className="contactCard" visible={visible} titleType="subtitle" title="Socials">
+                <AnimatedCard style={{flexGrow: 1}} className="contactCard" visible={visible} titleType="subtitle" title="Socials">
                     <a href="https://www.linkedin.com/in/nadden-auguste-laventure-0662a6314/" target="_blank" rel="noopener noreferrer">
                         <LabeledIcon className="textPdBottom" src="imgs/linkedinIcon.png" text="Linkedin" description="Nadden Auguste-Laventure" />
                     </a>
@@ -111,27 +111,27 @@ const Contact = forwardRef(({ visible }, ref) => {
                     </a>
                 </AnimatedCard>
 
-                <AnimatedCard className="contactCard" visible={visible} titleType="subtitle" title="Contact Info" animationDelay=".1s">
+                <AnimatedCard style={{flexGrow: 1}} className="contactCard" visible={visible} titleType="subtitle" title="Contact Info" animationDelay=".1s">
                     <LabeledIcon className="textPdBottom" src="imgs/phoneIcon.png" text="Phone" description="929-424-9627" />
                     <LabeledIcon className="textPdBottom" src="imgs/emailIcon.png" text="Email" description="nalaventure123@gmail.com" />
                     <LabeledIcon src="imgs/locationIcon.png" text="Location" description="Brooklyn, NY, USA" />
                 </AnimatedCard>
             </div>
-            <AnimatedCard className="contactCard cardFillHeight messageCard" visible={visible} titleType="subtitle" title="Direct Message" animationDelay=".2s" rightPadded={true}>
+            <AnimatedCard className="contactCard messageCard" visible={visible} titleType="subtitle" title="Direct Message" animationDelay=".2s" rightPadded={true}>
                 <form ref={form} onSubmit={submit}>
                     <div>
-                        <label htmlFor="name" className="medium"> Name </label>
+                        <label style={{paddingBottom: '4px'}} htmlFor="name" className="small"> Name </label>
                         <input className="small" type="text" placeholder="Type your name here..." id="name" name="name" required />
                     </div>
                     <div>
-                        <label htmlFor="email" className="medium"> Email </label>
+                        <label style={{paddingBottom: '4px'}} htmlFor="email" className="small"> Email </label>
                         <input className="small" type="text" placeholder="Type your email here..." id="email" name="email" inputMode="email" required />
                     </div>
                     <div>
-                        <label htmlFor="message" className="medium"> Message </label>
+                        <label style={{paddingBottom: '4px'}} htmlFor="message" className="small"> Message </label>
                         <textarea className="small" placeholder="Type your message here..." id="message" name="message" required />
                     </div>
-                    <button className={"bigButton " + (isButtonActive ? "styledButton enlargeOnHover" : "disabledButton")}
+                    <button className={"medButton " + (isButtonActive ? "styledButton enlargeOnHover" : "disabledButton")}
                         type="submit" style={{ marginTop: "auto" }}
                         disabled={!isButtonActive}>
                         {buttonText}

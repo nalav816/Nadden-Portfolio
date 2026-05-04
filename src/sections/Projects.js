@@ -3,6 +3,17 @@ import AnimatedCard from "../components/AnimatedCard";
 import { forwardRef, useState } from "react";
 
 const projectList = [
+     {
+        name: "N&M Space Odyssey",
+        icon: "imgs/spaceOdyssey.png",
+        completed: false,
+        completionDate: "Unknown",
+        tags: ["typeScript", "collaborative", "large"],
+        caption: "A web space tycoon game.",
+        description: " A full-stack application. Technologies used include Supbase, Prisma ORM, and NextJS. Development postponed until the summer. Click source link to view project progress.",
+        githubURL: "https://github.com/nalav816/nm-space-odyssey"
+    },
+
     {
         name: "Probable Suspect",
         icon: "imgs/probableSuspectIcon.png",
@@ -39,8 +50,12 @@ const projectList = [
 
 const projectTags = {
     java: { name: "Java", color: "red" },
-    gml: { name: "GML", color: "lightestBlue" },
+    javaScript: {name: "JavaScript", color: "yellow"},
+    typeScript: {name: "TypeScript", color: "lightBlue"},
+    swift: {name: "Swift", color: "lightestBlue"},
     independent: { name: "Independent", color: "blue" },
+    collaborative: { name: "Collaborative", color: "grey" },
+    large: { name: "Large", color: "orange" },
     medium: { name: "Medium", color: "yellow" },
     small: { name: "Small", color: "green" }
 }
