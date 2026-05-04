@@ -8,7 +8,7 @@ const projectList = [
         icon: "imgs/spaceOdyssey.png",
         completed: false,
         completionDate: "Unknown",
-        tags: ["javaScript", "collaborative", "large"],
+        tags: ["typeScript", "collaborative", "large"],
         caption: "A web space tycoon game.",
         description: " A full-stack application. Technologies used include Supbase, Prisma ORM, and NextJS. Development postponed until the summer. Click source link to view project progress.",
         githubURL: "https://github.com/nalav816/nm-space-odyssey"
@@ -51,6 +51,7 @@ const projectList = [
 const projectTags = {
     java: { name: "Java", color: "red" },
     javaScript: {name: "JavaScript", color: "yellow"},
+    typeScript: {name: "TypeScript", color: "lightBlue"},
     swift: {name: "Swift", color: "lightestBlue"},
     independent: { name: "Independent", color: "blue" },
     collaborative: { name: "Collaborative", color: "grey" },

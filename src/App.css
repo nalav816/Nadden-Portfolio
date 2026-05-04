@@ -146,6 +146,14 @@ input:focus, textarea:focus {
   color: var(--color);
 }
 
+.lightBlue {
+  --color: var(--lightBlue);
+  --shadow: var(--blue);
+  --darkShadow: var(--darkBlue);
+  --highlight: var(--lightestBlue);
+  color: var(--color);
+}
+
 .blue {
   --color: var(--blue);
   --darkShadow: var(--darkestBlue);
