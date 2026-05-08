@@ -502,8 +502,7 @@ input:focus, textarea:focus {
   display: flex;
   flex-direction: column;
   gap: calc(var(--scale) * var(--sectionGap));
-  align-items: center;
-  
+  align-items: center; 
 }
 
 /* Background */
