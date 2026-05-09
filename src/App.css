@@ -54,7 +54,6 @@ body {
   margin: 0;
   box-sizing: border-box;
   font-family: 'Jaro', sans-serif;
-  font-size: 1.6vw;
   color: var(--white);
   background-color: var(--black);
 }
@@ -281,7 +280,13 @@ input:focus, textarea:focus {
 }
 
 .small {
-  font-size: max(10px, calc(6px * min(2, var(--scale))));
+  font-size: 10px;
+}
+
+@media (min-width: 1024px) {
+  .small {
+    font-size: 12px;
+  }
 }
 
 .center{
@@ -303,6 +308,10 @@ input:focus, textarea:focus {
   .descTextPd {
     padding-right: calc(0.35 * var(--scale) * var(--baseWidth));
   }
+
+  .homeDescTextPd {
+    padding-right: 20px;
+  }
 }
 
 /* Section */
@@ -313,6 +322,7 @@ input:focus, textarea:focus {
   justify-content: center;
   flex-wrap: wrap;
   z-index: var(--mainLayer);
+  
 }
 
 /* Card */
@@ -510,6 +520,7 @@ input:focus, textarea:focus {
   flex-direction: column;
   gap: calc(var(--scale) * var(--sectionGap));
   align-items: center; 
+  scroll-snap-type: y proximity;
 }
 
 /* Background */
@@ -611,7 +622,7 @@ input:focus, textarea:focus {
 }
 
 .homeTitle {
-  font-size: calc(19px * var(--scale));
+  font-size: calc(21px * var(--scale));
 }
 
 .homeImage{
@@ -656,6 +667,13 @@ input:focus, textarea:focus {
 
 .angel{
   animation: float 5s ease infinite;
+}
+
+@media (max-width: 680px) {
+  /* Hide the angle all smaller screens it does not really fit */
+  .angel {
+    opacity: 0;
+  }
 }
 
 .pointer {
@@ -745,7 +763,7 @@ input:focus, textarea:focus {
   display: flex;
   flex-direction: column;
   padding-top: 30px;
-  gap: 46px;
+  gap: 44px;
   width: calc(var(--baseWidth) - 204px - var(--cardGap));
   align-items: center;
 }

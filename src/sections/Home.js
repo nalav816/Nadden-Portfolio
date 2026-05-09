@@ -27,12 +27,12 @@ function Home(){
                  <div className = "titleBox">
                     <div className = "homeTitle textGlow fadeInFast"> Portfolio </div>
                     <div className = "medium textGlow fadeIn">Nadden  <span className="lightestBlue"> Auguste Laventure </span></div>
-                    <div className = "small descTextPd fadeInSlow">
+                    <div className = "small descTextPd homeDescTextPd fadeInSlow">
                         I’m a Computer Science student looking for real-world experience to further refine my skillset. 
-                        I have been coding independently for two years now, and I am eager to contribute to something larger and meaningful, 
+                        I have been coding independently since 2023, and I am eager to contribute to something larger and meaningful, 
                         whether it be game development, web development, or any other aspect of software engineering.
                     </div>
-                    <a href = "#Contact" className = "styledButton medButton enlargeOnHover"> Get In Touch </a>
+                    <a style={{marginTop: '5px'}} href = "#Contact" className = "styledButton medButton enlargeOnHover"> Get In Touch </a>
                 </div>
 
             </div>

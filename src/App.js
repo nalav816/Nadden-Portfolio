@@ -14,7 +14,7 @@ function App() {
     const handleResize = () => {
       const style = getComputedStyle(document.documentElement)
      
-      setScale(style.getPropertyValue('--scale'));
+      setScale(parseInt(style.getPropertyValue('--scale')));
       setIsMobile(window.innerWidth <= 1024);
     }
     
