@@ -6,7 +6,7 @@
   /* Variables are updated in JavaScript whenever a user resizes the page */
   --baseWidth: 320px;
   --baseHeight: 180px;
-  --scale: 1;
+  --scale: 2;
   /* topPadding is constant, sectionGap scaled */
   --topPadding: 100px;
   --sectionGap: 130px;
@@ -36,6 +36,12 @@
   --darkestGrey: #707180;
   --yellow: #cca681;
   --green: #50a371;
+}
+
+@media (max-width: 680px) {
+  :root {
+    --scale: 1
+  }
 }
 
 /* General Styles */
