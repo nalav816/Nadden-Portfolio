@@ -32,7 +32,7 @@ function Home(){
                         I have been coding independently since 2023, and I am eager to contribute to something larger and meaningful, 
                         whether it be game development, web development, or any other aspect of software engineering.
                     </div>
-                    <a style={{marginTop: '5px'}} href = "#Contact" className = "styledButton medButton enlargeOnHover"> Get In Touch </a>
+                    <a style={{marginTop: '20px'}} href = "#Contact" className = "styledButton medButton enlargeOnHover"> Get In Touch </a>
                 </div>
 
             </div>
